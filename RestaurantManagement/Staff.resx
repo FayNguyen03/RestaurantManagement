@@ -1,0 +1,88 @@
+﻿<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <metadata name="panel1.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="bookingName.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        DAAACwwBP0AiyAAAAq9JREFUeF7tnE1OG0EQhb1iFc6AlGNEcIhcgLOwguRaIblGJCTIMTL5uvuNZcjM
+        IjNy/ZD6pJKoQvJ7/aBLlm35UBRFURRFURSFMdM0XVBfqV9UNl6oL9SFjmOPDGTnQcexB/H2V2x80igN
+        eL4e1qcXjeyRgUltOmTfz7/0K8CtSL8C3Ir0/zLA6Af1qDZcP8Oso9Ye6S8F+Eh9Uxuun2HWUWuP9P0M
+        7ET2K8CtyH68ABkt7hwv1vww66i1R/pLAS7uHC/W/DDrqLVH+n4GdiL7FeBWZD9egIxC7cA1unlQa4/0
+        lwIMtQPXwOPdkn8zmnhDbUqwf6cf7Rnx5Q7QFeW3dIVT7EB3enqg9gijFDvQnZ4eqE0Ftj9TH9T60NMD
+        tWnA8i31m2o3xS9ExDtqjzAKvQPx9pF6ohp+IQ79nDsQf/4hDu2cO7CB9SvqZz/EuDWX+pUNQzdvgA3s
+        +4U4NPPtwLfg1ec6D72cO/At+LUPcWjlvsKncBTb6zx03k+ADY5jF+LQOM8O7A8cg/Nd5/H459mB/YFj
+        YB9gZjjO6RX+Ttlf4axwFLvwGkPnPDvQGvzGeRrDaPcOtASvsZ5IZwL7ttf2lKGZN0Cs+4XXGLo5dyD+
+        4r6cxSj0DsSbf3iNoZ/vCmM59kv6GcB23DeVGKV7HuhCTw/UHmEUegeGoacHaot/RfmlDhD78T5cxCjF
+        DsRjzI+3MUqxA7t5UGuP9NNeYdmvALci+/ECZBRqB675YdZRa4/0lwIMtQPX/DDrqLVH+n4GdiL7FeBW
+        ZD9egIxe7Zxo/Qyzjlp7pL8U4KudE62fYdZRa4/0/QzsRPYrwK3IfgW4Fdl3DXD+4p1rjdKA55thfXrW
+        yB7EH4aH1NzrOPYg3r58rIU4/ydm4pm6p/y+fKwoiqIoiqIo/k8Ohz9WiSXGD5LRYgAAAABJRU5ErkJg
+        gg==
+</value>
+  </data>
+  <metadata name="bookingName.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+</root>
