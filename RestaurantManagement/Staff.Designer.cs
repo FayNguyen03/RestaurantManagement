@@ -190,7 +190,7 @@
             button2.BackgroundImageLayout = ImageLayout.Center;
             button2.FlatStyle = FlatStyle.Popup;
             button2.Font = new Font("Perpetua Titling MT", 10F, FontStyle.Bold, GraphicsUnit.Point);
-            button2.Location = new Point(852, 296);
+            button2.Location = new Point(776, 287);
             button2.Name = "button2";
             button2.Size = new Size(297, 66);
             button2.TabIndex = 34;
@@ -203,7 +203,7 @@
             button1.BackgroundImageLayout = ImageLayout.Center;
             button1.FlatStyle = FlatStyle.Popup;
             button1.Font = new Font("Perpetua Titling MT", 10F, FontStyle.Bold, GraphicsUnit.Point);
-            button1.Location = new Point(398, 296);
+            button1.Location = new Point(322, 287);
             button1.Name = "button1";
             button1.Size = new Size(297, 66);
             button1.TabIndex = 33;
@@ -216,7 +216,7 @@
             button3.BackgroundImageLayout = ImageLayout.Center;
             button3.FlatStyle = FlatStyle.Popup;
             button3.Font = new Font("Perpetua Titling MT", 10F, FontStyle.Bold, GraphicsUnit.Point);
-            button3.Location = new Point(1798, 296);
+            button3.Location = new Point(1722, 287);
             button3.Name = "button3";
             button3.Size = new Size(297, 66);
             button3.TabIndex = 35;
@@ -229,7 +229,7 @@
             button4.BackgroundImageLayout = ImageLayout.Center;
             button4.FlatStyle = FlatStyle.Popup;
             button4.Font = new Font("Perpetua Titling MT", 10F, FontStyle.Bold, GraphicsUnit.Point);
-            button4.Location = new Point(1345, 296);
+            button4.Location = new Point(1269, 287);
             button4.Name = "button4";
             button4.Size = new Size(297, 66);
             button4.TabIndex = 36;

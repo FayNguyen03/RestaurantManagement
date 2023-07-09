@@ -19,3 +19,4 @@ C:\Users\ntkha\Documents\CODING\C#\Calculator\RestaurantManagement\RestaurantMan
 C:\Users\ntkha\Documents\CODING\C#\Calculator\RestaurantManagement\RestaurantManagement\obj\Debug\net7.0-windows\RestaurantManagement.Properties.Resources.resources
 C:\Users\ntkha\Documents\CODING\C#\Calculator\RestaurantManagement\RestaurantManagement\obj\Debug\net7.0-windows\RestaurantManagement.Res.resources
 C:\Users\ntkha\Documents\CODING\C#\Calculator\RestaurantManagement\RestaurantManagement\obj\Debug\net7.0-windows\RestaurantManagement.ViewBooking.resources
+C:\Users\ntkha\Documents\CODING\C#\Calculator\RestaurantManagement\RestaurantManagement\obj\Debug\net7.0-windows\RestaurantManagement.Staff.resources
