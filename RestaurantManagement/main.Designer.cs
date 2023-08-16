@@ -60,6 +60,7 @@
             BookingBtn.TabIndex = 9;
             BookingBtn.Text = "BOOKING";
             BookingBtn.UseVisualStyleBackColor = false;
+            BookingBtn.Click += BookingBtn_Click;
             // 
             // button2
             // 

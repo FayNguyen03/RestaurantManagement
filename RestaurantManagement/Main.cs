@@ -26,5 +26,10 @@ namespace RestaurantManagement
         {
 
         }
+
+        private void BookingBtn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

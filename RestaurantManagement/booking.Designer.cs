@@ -134,6 +134,7 @@
             bookingName.Size = new Size(290, 64);
             bookingName.TabIndex = 9;
             bookingName.Text = "BOOKING";
+            bookingName.Click += bookingName_Click;
             // 
             // Date
             // 

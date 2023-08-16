@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Krypton.Toolkit;
 
 namespace RestaurantManagement
 {
@@ -15,6 +16,11 @@ namespace RestaurantManagement
         public ViewBooking()
         {
             InitializeComponent();
+        }
+
+        private void ViewBooking_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
