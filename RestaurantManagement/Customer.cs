@@ -41,6 +41,7 @@ namespace RestaurantManagement
                     MessageBox.Show("Customer Succesfully Added");
                     Con.Close();
                     populate();
+                    clear();
                 }
                 catch (Exception ex)
                 {
@@ -66,11 +67,87 @@ namespace RestaurantManagement
             populate();
         }
 
+        int custkey = 0;
         private void CustomerDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             CustName.Text = CustomerDGV.SelectedRows[0].Cells[1].Value.ToString();
             CustAdd.Text = CustomerDGV.SelectedRows[0].Cells[2].Value.ToString();
             CustPhone.Text = CustomerDGV.SelectedRows[0].Cells[3].Value.ToString();
+            if (CustPhone.Text == "")
+            {
+                custkey = 0;
+            }
+            else
+            {
+                custkey = Convert.ToInt32(CustomerDGV.SelectedRows[0].Cells[0].Value.ToString());
+            }
         }
+
+        private void clear()
+        {
+            CustPhone.Text = "";
+            CustAdd.Text = "";
+            custkey = 0;
+            CustName.Text = "";
+        }
+
+        private void resetBtn_Click(object sender, EventArgs e)
+        {
+            clear();
+        }
+
+        private void deleteBtn_Click(object sender, EventArgs e)
+        {
+            if (custkey == 0)
+            {
+                MessageBox.Show("Select The Customer To Be Deleted");
+            }
+            else
+            {
+                try
+                {
+                    Con.Open();
+                    string query = "Delete from CustomerTbl where CustID=" + custkey + ";";
+                    SqlCommand cmd = new SqlCommand(query, Con);
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Customer Deleted Successfully");
+                    Con.Close();
+                    populate();
+                    clear();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
+
+        private void editBtn_Click(object sender, EventArgs e)
+        {
+            if (CustName.Text == "" || CustPhone.Text == "" || CustAdd.Text == "")
+            {
+                MessageBox.Show("Missing Data!");
+            }
+            else
+            {
+                try
+                {
+                    Con.Open();
+                    string query = "Update CustomerTbl set CustName='" + CustName.Text + "',CustAdd='" + CustAdd.Text + "',CustPhone='" + CustPhone.Text + "' where CustID=" + custkey + ";";
+                    SqlCommand cmd = new SqlCommand(query, Con);
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Customer Succesfully Updated");
+                    Con.Close();
+                    populate();
+                    clear();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
+
+
     }
 }

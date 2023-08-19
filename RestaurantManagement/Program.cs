@@ -19,7 +19,7 @@ namespace RestaurantManagement
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);   
             ApplicationConfiguration.Initialize();
-            Application.Run(new Customer());
+            Application.Run(new Booking());
         }
     }
 }

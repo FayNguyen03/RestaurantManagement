@@ -29,27 +29,30 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Staff));
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             panel1 = new Panel();
             pictureBox1 = new PictureBox();
             bookingName = new Label();
-            textBox1 = new TextBox();
+            StaffPhone = new TextBox();
             personNo = new Label();
-            comboBox1 = new ComboBox();
+            StaffGender = new ComboBox();
             timeName = new Label();
-            textBox2 = new TextBox();
+            StaffName = new TextBox();
             label1 = new Label();
-            textBox3 = new TextBox();
+            StaffPass = new TextBox();
             label2 = new Label();
-            dataGridView1 = new DataGridView();
-            BeverageItem = new Label();
-            button2 = new Button();
-            button1 = new Button();
-            button3 = new Button();
-            button4 = new Button();
-            button5 = new Button();
+            StaffListName = new Label();
+            editBtn = new Button();
+            addBtn = new Button();
+            resetBtn = new Button();
+            deleteBtn = new Button();
+            backBtn = new Button();
+            StaffDGV = new DataGridView();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)StaffDGV).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -84,14 +87,13 @@
             bookingName.TabIndex = 9;
             bookingName.Text = "staff";
             // 
-            // textBox1
+            // StaffPhone
             // 
-            textBox1.Location = new Point(818, 173);
-            textBox1.Multiline = true;
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(354, 52);
-            textBox1.TabIndex = 16;
-            textBox1.TextChanged += textBox1_TextChanged;
+            StaffPhone.Location = new Point(818, 173);
+            StaffPhone.Multiline = true;
+            StaffPhone.Name = "StaffPhone";
+            StaffPhone.Size = new Size(354, 52);
+            StaffPhone.TabIndex = 16;
             // 
             // personNo
             // 
@@ -102,17 +104,16 @@
             personNo.Size = new Size(251, 34);
             personNo.TabIndex = 15;
             personNo.Text = "PHONE NUMBER";
-            personNo.Click += personNo_Click;
             // 
-            // comboBox1
+            // StaffGender
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.ItemHeight = 32;
-            comboBox1.Items.AddRange(new object[] { "Male", "Female" });
-            comboBox1.Location = new Point(1378, 178);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(241, 40);
-            comboBox1.TabIndex = 14;
+            StaffGender.FormattingEnabled = true;
+            StaffGender.ItemHeight = 32;
+            StaffGender.Items.AddRange(new object[] { "Male", "Female" });
+            StaffGender.Location = new Point(1378, 178);
+            StaffGender.Name = "StaffGender";
+            StaffGender.Size = new Size(241, 40);
+            StaffGender.TabIndex = 14;
             // 
             // timeName
             // 
@@ -124,13 +125,13 @@
             timeName.TabIndex = 13;
             timeName.Text = "GENDER";
             // 
-            // textBox2
+            // StaffName
             // 
-            textBox2.Location = new Point(128, 173);
-            textBox2.Multiline = true;
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(392, 52);
-            textBox2.TabIndex = 18;
+            StaffName.Location = new Point(128, 173);
+            StaffName.Multiline = true;
+            StaffName.Name = "StaffName";
+            StaffName.Size = new Size(392, 52);
+            StaffName.TabIndex = 18;
             // 
             // label1
             // 
@@ -142,14 +143,13 @@
             label1.TabIndex = 17;
             label1.Text = "NAME";
             // 
-            // textBox3
+            // StaffPass
             // 
-            textBox3.Location = new Point(1879, 173);
-            textBox3.Multiline = true;
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(382, 52);
-            textBox3.TabIndex = 20;
-            textBox3.TextChanged += textBox3_TextChanged;
+            StaffPass.Location = new Point(1879, 173);
+            StaffPass.Multiline = true;
+            StaffPass.Name = "StaffPass";
+            StaffPass.Size = new Size(382, 52);
+            StaffPass.TabIndex = 20;
             // 
             // label2
             // 
@@ -160,124 +160,163 @@
             label2.Size = new Size(176, 34);
             label2.TabIndex = 19;
             label2.Text = "PASSWORD";
-            label2.Click += label2_Click;
             // 
-            // dataGridView1
+            // StaffListName
             // 
-            dataGridView1.BackgroundColor = SystemColors.Control;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.GridColor = SystemColors.Control;
-            dataGridView1.Location = new Point(48, 485);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 82;
-            dataGridView1.RowTemplate.Height = 41;
-            dataGridView1.Size = new Size(2195, 709);
-            dataGridView1.TabIndex = 22;
+            StaffListName.AutoSize = true;
+            StaffListName.Font = new Font("Goudy Old Style", 16F, FontStyle.Regular, GraphicsUnit.Point);
+            StaffListName.Location = new Point(992, 412);
+            StaffListName.Name = "StaffListName";
+            StaffListName.Size = new Size(237, 48);
+            StaffListName.TabIndex = 21;
+            StaffListName.Text = "STAFF LIST";
             // 
-            // BeverageItem
+            // editBtn
             // 
-            BeverageItem.AutoSize = true;
-            BeverageItem.Font = new Font("Goudy Old Style", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            BeverageItem.Location = new Point(992, 412);
-            BeverageItem.Name = "BeverageItem";
-            BeverageItem.Size = new Size(316, 48);
-            BeverageItem.TabIndex = 21;
-            BeverageItem.Text = "BOOKING LIST";
+            editBtn.BackColor = SystemColors.Window;
+            editBtn.BackgroundImageLayout = ImageLayout.Center;
+            editBtn.FlatStyle = FlatStyle.Popup;
+            editBtn.Font = new Font("Perpetua Titling MT", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            editBtn.Location = new Point(776, 287);
+            editBtn.Name = "editBtn";
+            editBtn.Size = new Size(297, 66);
+            editBtn.TabIndex = 34;
+            editBtn.Text = "edit staff";
+            editBtn.UseVisualStyleBackColor = false;
+            editBtn.Click += editBtn_Click;
             // 
-            // button2
+            // addBtn
             // 
-            button2.BackColor = SystemColors.Window;
-            button2.BackgroundImageLayout = ImageLayout.Center;
-            button2.FlatStyle = FlatStyle.Popup;
-            button2.Font = new Font("Perpetua Titling MT", 10F, FontStyle.Bold, GraphicsUnit.Point);
-            button2.Location = new Point(776, 287);
-            button2.Name = "button2";
-            button2.Size = new Size(297, 66);
-            button2.TabIndex = 34;
-            button2.Text = "edit staff";
-            button2.UseVisualStyleBackColor = false;
+            addBtn.BackColor = SystemColors.Window;
+            addBtn.BackgroundImageLayout = ImageLayout.Center;
+            addBtn.FlatStyle = FlatStyle.Popup;
+            addBtn.Font = new Font("Perpetua Titling MT", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            addBtn.Location = new Point(322, 287);
+            addBtn.Name = "addBtn";
+            addBtn.Size = new Size(297, 66);
+            addBtn.TabIndex = 33;
+            addBtn.Text = "add staff";
+            addBtn.UseVisualStyleBackColor = false;
+            addBtn.Click += addBtn_Click;
             // 
-            // button1
+            // resetBtn
             // 
-            button1.BackColor = SystemColors.Window;
-            button1.BackgroundImageLayout = ImageLayout.Center;
-            button1.FlatStyle = FlatStyle.Popup;
-            button1.Font = new Font("Perpetua Titling MT", 10F, FontStyle.Bold, GraphicsUnit.Point);
-            button1.Location = new Point(322, 287);
-            button1.Name = "button1";
-            button1.Size = new Size(297, 66);
-            button1.TabIndex = 33;
-            button1.Text = "add staff";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
+            resetBtn.BackColor = SystemColors.Window;
+            resetBtn.BackgroundImageLayout = ImageLayout.Center;
+            resetBtn.FlatStyle = FlatStyle.Popup;
+            resetBtn.Font = new Font("Perpetua Titling MT", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            resetBtn.Location = new Point(1722, 287);
+            resetBtn.Name = "resetBtn";
+            resetBtn.Size = new Size(297, 66);
+            resetBtn.TabIndex = 35;
+            resetBtn.Text = "RESET";
+            resetBtn.UseVisualStyleBackColor = false;
+            resetBtn.Click += resetBtn_Click;
             // 
-            // button3
+            // deleteBtn
             // 
-            button3.BackColor = SystemColors.Window;
-            button3.BackgroundImageLayout = ImageLayout.Center;
-            button3.FlatStyle = FlatStyle.Popup;
-            button3.Font = new Font("Perpetua Titling MT", 10F, FontStyle.Bold, GraphicsUnit.Point);
-            button3.Location = new Point(1722, 287);
-            button3.Name = "button3";
-            button3.Size = new Size(297, 66);
-            button3.TabIndex = 35;
-            button3.Text = "RESET";
-            button3.UseVisualStyleBackColor = false;
+            deleteBtn.BackColor = SystemColors.Window;
+            deleteBtn.BackgroundImageLayout = ImageLayout.Center;
+            deleteBtn.FlatStyle = FlatStyle.Popup;
+            deleteBtn.Font = new Font("Perpetua Titling MT", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            deleteBtn.Location = new Point(1269, 287);
+            deleteBtn.Name = "deleteBtn";
+            deleteBtn.Size = new Size(297, 66);
+            deleteBtn.TabIndex = 36;
+            deleteBtn.Text = "delete staff";
+            deleteBtn.UseVisualStyleBackColor = false;
+            deleteBtn.Click += deleteBtn_Click;
             // 
-            // button4
+            // backBtn
             // 
-            button4.BackColor = SystemColors.Window;
-            button4.BackgroundImageLayout = ImageLayout.Center;
-            button4.FlatStyle = FlatStyle.Popup;
-            button4.Font = new Font("Perpetua Titling MT", 10F, FontStyle.Bold, GraphicsUnit.Point);
-            button4.Location = new Point(1269, 287);
-            button4.Name = "button4";
-            button4.Size = new Size(297, 66);
-            button4.TabIndex = 36;
-            button4.Text = "delete staff";
-            button4.UseVisualStyleBackColor = false;
+            backBtn.BackColor = SystemColors.Window;
+            backBtn.BackgroundImageLayout = ImageLayout.Center;
+            backBtn.FlatStyle = FlatStyle.Popup;
+            backBtn.Font = new Font("Perpetua Titling MT", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            backBtn.Location = new Point(992, 1228);
+            backBtn.Name = "backBtn";
+            backBtn.Size = new Size(297, 66);
+            backBtn.TabIndex = 35;
+            backBtn.Text = "back";
+            backBtn.UseVisualStyleBackColor = false;
             // 
-            // button5
+            // StaffDGV
             // 
-            button5.BackColor = SystemColors.Window;
-            button5.BackgroundImageLayout = ImageLayout.Center;
-            button5.FlatStyle = FlatStyle.Popup;
-            button5.Font = new Font("Perpetua Titling MT", 10F, FontStyle.Bold, GraphicsUnit.Point);
-            button5.Location = new Point(992, 1228);
-            button5.Name = "button5";
-            button5.Size = new Size(297, 66);
-            button5.TabIndex = 35;
-            button5.Text = "back";
-            button5.UseVisualStyleBackColor = false;
+            StaffDGV.AllowUserToOrderColumns = true;
+            StaffDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            StaffDGV.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCells;
+            StaffDGV.BackgroundColor = SystemColors.ButtonFace;
+            StaffDGV.BorderStyle = BorderStyle.None;
+            StaffDGV.ClipboardCopyMode = DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
+            StaffDGV.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.White;
+            dataGridViewCellStyle1.Font = new Font("Times New Roman", 13.875F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.ButtonHighlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.ActiveCaptionText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            StaffDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            StaffDGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.ActiveCaption;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.ButtonHighlight;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            StaffDGV.DefaultCellStyle = dataGridViewCellStyle2;
+            StaffDGV.GridColor = SystemColors.Control;
+            StaffDGV.Location = new Point(73, 486);
+            StaffDGV.Name = "StaffDGV";
+            StaffDGV.ReadOnly = true;
+            StaffDGV.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.White;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = Color.White;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.ActiveCaptionText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            StaffDGV.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            StaffDGV.RowHeadersVisible = false;
+            StaffDGV.RowHeadersWidth = 82;
+            StaffDGV.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            StaffDGV.RowTemplate.Height = 41;
+            StaffDGV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            StaffDGV.Size = new Size(2160, 695);
+            StaffDGV.TabIndex = 52;
+            StaffDGV.CellContentClick += StaffDGV_CellContentClick;
             // 
             // Staff
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(2310, 1320);
-            Controls.Add(button5);
-            Controls.Add(button4);
-            Controls.Add(button3);
-            Controls.Add(button2);
-            Controls.Add(button1);
-            Controls.Add(dataGridView1);
-            Controls.Add(BeverageItem);
-            Controls.Add(textBox3);
+            Controls.Add(StaffDGV);
+            Controls.Add(backBtn);
+            Controls.Add(deleteBtn);
+            Controls.Add(resetBtn);
+            Controls.Add(editBtn);
+            Controls.Add(addBtn);
+            Controls.Add(StaffListName);
+            Controls.Add(StaffPass);
             Controls.Add(label2);
-            Controls.Add(textBox2);
+            Controls.Add(StaffName);
             Controls.Add(label1);
-            Controls.Add(textBox1);
+            Controls.Add(StaffPhone);
             Controls.Add(panel1);
             Controls.Add(personNo);
-            Controls.Add(comboBox1);
+            Controls.Add(StaffGender);
             Controls.Add(timeName);
             FormBorderStyle = FormBorderStyle.None;
             Name = "Staff";
             Text = "Staff";
+            Load += Staff_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)StaffDGV).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -287,20 +326,20 @@
         private Panel panel1;
         private Label bookingName;
         private PictureBox pictureBox1;
-        private TextBox textBox1;
+        private TextBox StaffPhone;
         private Label personNo;
-        private ComboBox comboBox1;
+        private ComboBox StaffGender;
         private Label timeName;
-        private TextBox textBox2;
+        private TextBox StaffName;
         private Label label1;
-        private TextBox textBox3;
+        private TextBox StaffPass;
         private Label label2;
-        private DataGridView dataGridView1;
-        private Label BeverageItem;
-        private Button button2;
-        private Button button1;
-        private Button button3;
-        private Button button4;
-        private Button button5;
+        private Label StaffListName;
+        private Button editBtn;
+        private Button addBtn;
+        private Button resetBtn;
+        private Button deleteBtn;
+        private Button backBtn;
+        private DataGridView StaffDGV;
     }
 }

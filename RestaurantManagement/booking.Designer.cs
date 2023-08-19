@@ -52,8 +52,8 @@
             textBox7 = new TextBox();
             textBox4 = new TextBox();
             textBox5 = new TextBox();
-            textBox3 = new TextBox();
-            textBox2 = new TextBox();
+            champQuantity = new TextBox();
+            champPrice = new TextBox();
             BeverageItem = new Label();
             Beverage6 = new CheckBox();
             Beverage5 = new CheckBox();
@@ -112,7 +112,6 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(2310, 132);
             panel1.TabIndex = 1;
-            panel1.Paint += panel1_Paint;
             // 
             // pictureBox1
             // 
@@ -134,7 +133,6 @@
             bookingName.Size = new Size(290, 64);
             bookingName.TabIndex = 9;
             bookingName.Text = "BOOKING";
-            bookingName.Click += bookingName_Click;
             // 
             // Date
             // 
@@ -206,8 +204,8 @@
             Beverage.Controls.Add(textBox7);
             Beverage.Controls.Add(textBox4);
             Beverage.Controls.Add(textBox5);
-            Beverage.Controls.Add(textBox3);
-            Beverage.Controls.Add(textBox2);
+            Beverage.Controls.Add(champQuantity);
+            Beverage.Controls.Add(champPrice);
             Beverage.Controls.Add(BeverageItem);
             Beverage.Controls.Add(Beverage6);
             Beverage.Controls.Add(Beverage5);
@@ -222,7 +220,6 @@
             Beverage.TabIndex = 13;
             Beverage.TabStop = false;
             Beverage.Text = "Beverage";
-            Beverage.Enter += Beverage_Enter;
             // 
             // label4
             // 
@@ -256,6 +253,7 @@
             // 
             // textBox12
             // 
+            textBox12.Enabled = false;
             textBox12.Location = new Point(797, 556);
             textBox12.Name = "textBox12";
             textBox12.Size = new Size(129, 56);
@@ -263,6 +261,7 @@
             // 
             // textBox13
             // 
+            textBox13.Enabled = false;
             textBox13.Location = new Point(619, 554);
             textBox13.Name = "textBox13";
             textBox13.Size = new Size(129, 56);
@@ -270,6 +269,7 @@
             // 
             // textBox10
             // 
+            textBox10.Enabled = false;
             textBox10.Location = new Point(797, 465);
             textBox10.Name = "textBox10";
             textBox10.Size = new Size(129, 56);
@@ -277,6 +277,7 @@
             // 
             // textBox11
             // 
+            textBox11.Enabled = false;
             textBox11.Location = new Point(619, 463);
             textBox11.Name = "textBox11";
             textBox11.Size = new Size(129, 56);
@@ -284,6 +285,7 @@
             // 
             // textBox8
             // 
+            textBox8.Enabled = false;
             textBox8.Location = new Point(797, 383);
             textBox8.Name = "textBox8";
             textBox8.Size = new Size(129, 56);
@@ -291,6 +293,7 @@
             // 
             // textBox9
             // 
+            textBox9.Enabled = false;
             textBox9.Location = new Point(619, 381);
             textBox9.Name = "textBox9";
             textBox9.Size = new Size(129, 56);
@@ -298,6 +301,7 @@
             // 
             // textBox6
             // 
+            textBox6.Enabled = false;
             textBox6.Location = new Point(797, 303);
             textBox6.Name = "textBox6";
             textBox6.Size = new Size(129, 56);
@@ -305,6 +309,7 @@
             // 
             // textBox7
             // 
+            textBox7.Enabled = false;
             textBox7.Location = new Point(619, 301);
             textBox7.Name = "textBox7";
             textBox7.Size = new Size(129, 56);
@@ -312,6 +317,7 @@
             // 
             // textBox4
             // 
+            textBox4.Enabled = false;
             textBox4.Location = new Point(797, 223);
             textBox4.Name = "textBox4";
             textBox4.Size = new Size(129, 56);
@@ -319,24 +325,27 @@
             // 
             // textBox5
             // 
+            textBox5.Enabled = false;
             textBox5.Location = new Point(619, 221);
             textBox5.Name = "textBox5";
             textBox5.Size = new Size(129, 56);
             textBox5.TabIndex = 17;
             // 
-            // textBox3
+            // champQuantity
             // 
-            textBox3.Location = new Point(797, 141);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(129, 56);
-            textBox3.TabIndex = 16;
+            champQuantity.Enabled = false;
+            champQuantity.Location = new Point(797, 141);
+            champQuantity.Name = "champQuantity";
+            champQuantity.Size = new Size(129, 56);
+            champQuantity.TabIndex = 16;
             // 
-            // textBox2
+            // champPrice
             // 
-            textBox2.Location = new Point(619, 139);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(129, 56);
-            textBox2.TabIndex = 15;
+            champPrice.Enabled = false;
+            champPrice.Location = new Point(615, 139);
+            champPrice.Name = "champPrice";
+            champPrice.Size = new Size(129, 56);
+            champPrice.TabIndex = 15;
             // 
             // BeverageItem
             // 
@@ -413,6 +422,7 @@
             Beverage1.TabIndex = 0;
             Beverage1.Text = "Champagne";
             Beverage1.UseVisualStyleBackColor = true;
+            Beverage1.CheckedChanged += Beverage1_CheckedChanged;
             // 
             // Sets
             // 
@@ -602,7 +612,6 @@
             Set4.TabIndex = 3;
             Set4.Text = "Royal Lotus (Plant-based) (6 dishes)";
             Set4.UseVisualStyleBackColor = true;
-            Set4.CheckedChanged += Set4_CheckedChanged;
             // 
             // Set3
             // 
@@ -811,8 +820,8 @@
         private TextBox textBox7;
         private TextBox textBox4;
         private TextBox textBox5;
-        private TextBox textBox3;
-        private TextBox textBox2;
+        private TextBox champQuantity;
+        private TextBox champPrice;
         private Label BeverageNo;
         private Label label1;
         private GroupBox Sets;

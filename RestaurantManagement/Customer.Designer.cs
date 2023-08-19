@@ -31,12 +31,13 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Customer));
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             panel1 = new Panel();
             pictureBox1 = new PictureBox();
             label1 = new Label();
-            button4 = new Button();
-            button3 = new Button();
-            button2 = new Button();
+            deleteBtn = new Button();
+            resetBtn = new Button();
+            editBtn = new Button();
             addBtn = new Button();
             BeverageItem = new Label();
             CustAdd = new TextBox();
@@ -84,44 +85,47 @@
             label1.TabIndex = 9;
             label1.Text = "CUSTOMER";
             // 
-            // button4
+            // deleteBtn
             // 
-            button4.BackColor = SystemColors.Window;
-            button4.BackgroundImageLayout = ImageLayout.Center;
-            button4.FlatStyle = FlatStyle.Popup;
-            button4.Font = new Font("Perpetua Titling MT", 10F, FontStyle.Bold, GraphicsUnit.Point);
-            button4.Location = new Point(1282, 264);
-            button4.Name = "button4";
-            button4.Size = new Size(297, 66);
-            button4.TabIndex = 48;
-            button4.Text = "delete customer";
-            button4.UseVisualStyleBackColor = false;
+            deleteBtn.BackColor = SystemColors.Window;
+            deleteBtn.BackgroundImageLayout = ImageLayout.Center;
+            deleteBtn.FlatStyle = FlatStyle.Popup;
+            deleteBtn.Font = new Font("Perpetua Titling MT", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            deleteBtn.Location = new Point(1282, 264);
+            deleteBtn.Name = "deleteBtn";
+            deleteBtn.Size = new Size(297, 66);
+            deleteBtn.TabIndex = 48;
+            deleteBtn.Text = "delete customer";
+            deleteBtn.UseVisualStyleBackColor = false;
+            deleteBtn.Click += deleteBtn_Click;
             // 
-            // button3
+            // resetBtn
             // 
-            button3.BackColor = SystemColors.Window;
-            button3.BackgroundImageLayout = ImageLayout.Center;
-            button3.FlatStyle = FlatStyle.Popup;
-            button3.Font = new Font("Perpetua Titling MT", 10F, FontStyle.Bold, GraphicsUnit.Point);
-            button3.Location = new Point(1735, 264);
-            button3.Name = "button3";
-            button3.Size = new Size(297, 66);
-            button3.TabIndex = 47;
-            button3.Text = "RESET";
-            button3.UseVisualStyleBackColor = false;
+            resetBtn.BackColor = SystemColors.Window;
+            resetBtn.BackgroundImageLayout = ImageLayout.Center;
+            resetBtn.FlatStyle = FlatStyle.Popup;
+            resetBtn.Font = new Font("Perpetua Titling MT", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            resetBtn.Location = new Point(1735, 264);
+            resetBtn.Name = "resetBtn";
+            resetBtn.Size = new Size(297, 66);
+            resetBtn.TabIndex = 47;
+            resetBtn.Text = "RESET";
+            resetBtn.UseVisualStyleBackColor = false;
+            resetBtn.Click += resetBtn_Click;
             // 
-            // button2
+            // editBtn
             // 
-            button2.BackColor = SystemColors.Window;
-            button2.BackgroundImageLayout = ImageLayout.Center;
-            button2.FlatStyle = FlatStyle.Popup;
-            button2.Font = new Font("Perpetua Titling MT", 10F, FontStyle.Bold, GraphicsUnit.Point);
-            button2.Location = new Point(789, 264);
-            button2.Name = "button2";
-            button2.Size = new Size(297, 66);
-            button2.TabIndex = 46;
-            button2.Text = "edit customer";
-            button2.UseVisualStyleBackColor = false;
+            editBtn.BackColor = SystemColors.Window;
+            editBtn.BackgroundImageLayout = ImageLayout.Center;
+            editBtn.FlatStyle = FlatStyle.Popup;
+            editBtn.Font = new Font("Perpetua Titling MT", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            editBtn.Location = new Point(789, 264);
+            editBtn.Name = "editBtn";
+            editBtn.Size = new Size(297, 66);
+            editBtn.TabIndex = 46;
+            editBtn.Text = "edit customer";
+            editBtn.UseVisualStyleBackColor = false;
+            editBtn.Click += editBtn_Click;
             // 
             // addBtn
             // 
@@ -216,14 +220,17 @@
             // 
             // CustomerDGV
             // 
+            CustomerDGV.AllowUserToOrderColumns = true;
             CustomerDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             CustomerDGV.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCells;
             CustomerDGV.BackgroundColor = SystemColors.ButtonFace;
+            CustomerDGV.BorderStyle = BorderStyle.None;
             CustomerDGV.ClipboardCopyMode = DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
+            CustomerDGV.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.IndianRed;
-            dataGridViewCellStyle1.Font = new Font("Perpetua Titling MT", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = Color.White;
+            dataGridViewCellStyle1.BackColor = Color.White;
+            dataGridViewCellStyle1.Font = new Font("Times New Roman", 13.875F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = Color.Black;
             dataGridViewCellStyle1.SelectionBackColor = SystemColors.ButtonHighlight;
             dataGridViewCellStyle1.SelectionForeColor = SystemColors.ActiveCaptionText;
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
@@ -231,7 +238,7 @@
             CustomerDGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Times New Roman", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle2.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
             dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
             dataGridViewCellStyle2.SelectionBackColor = SystemColors.ActiveCaption;
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.ButtonHighlight;
@@ -240,11 +247,22 @@
             CustomerDGV.GridColor = SystemColors.Control;
             CustomerDGV.Location = new Point(81, 498);
             CustomerDGV.Name = "CustomerDGV";
+            CustomerDGV.ReadOnly = true;
+            CustomerDGV.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.White;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = Color.White;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.ActiveCaptionText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            CustomerDGV.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             CustomerDGV.RowHeadersVisible = false;
             CustomerDGV.RowHeadersWidth = 82;
+            CustomerDGV.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             CustomerDGV.RowTemplate.Height = 41;
             CustomerDGV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            CustomerDGV.Size = new Size(2160, 590);
+            CustomerDGV.Size = new Size(2160, 672);
             CustomerDGV.TabIndex = 51;
             CustomerDGV.CellContentClick += CustomerDGV_CellContentClick;
             // 
@@ -255,9 +273,9 @@
             ClientSize = new Size(2310, 1320);
             Controls.Add(CustomerDGV);
             Controls.Add(button1);
-            Controls.Add(button4);
-            Controls.Add(button3);
-            Controls.Add(button2);
+            Controls.Add(deleteBtn);
+            Controls.Add(resetBtn);
+            Controls.Add(editBtn);
             Controls.Add(addBtn);
             Controls.Add(BeverageItem);
             Controls.Add(CustAdd);
@@ -285,9 +303,9 @@
         private Panel panel1;
         private PictureBox pictureBox1;
         private Label label1;
-        private Button button4;
-        private Button button3;
-        private Button button2;
+        private Button deleteBtn;
+        private Button resetBtn;
+        private Button editBtn;
         private Button addBtn;
         private Label BeverageItem;
         private TextBox CustAdd;
