@@ -35,23 +35,24 @@
             Date = new Label();
             dateTimePicker1 = new DateTimePicker();
             timeName = new Label();
-            comboBox1 = new ComboBox();
+            timeCb = new ComboBox();
             personNo = new Label();
             textBox1 = new TextBox();
             Beverage = new GroupBox();
-            label4 = new Label();
+            beverageBtn = new Button();
+            bevCost = new Label();
             BeverageNo = new Label();
             label1 = new Label();
-            textBox12 = new TextBox();
-            textBox13 = new TextBox();
-            textBox10 = new TextBox();
-            textBox11 = new TextBox();
-            textBox8 = new TextBox();
-            textBox9 = new TextBox();
-            textBox6 = new TextBox();
-            textBox7 = new TextBox();
-            textBox4 = new TextBox();
-            textBox5 = new TextBox();
+            nonQuantity = new TextBox();
+            nonPrice = new TextBox();
+            spiritQuantity = new TextBox();
+            spiritPrice = new TextBox();
+            whiskiesQuantity = new TextBox();
+            whiskiesPrice = new TextBox();
+            cocktailQuantity = new TextBox();
+            cocktailPrice = new TextBox();
+            fineQuantity = new TextBox();
+            finePrice = new TextBox();
             champQuantity = new TextBox();
             champPrice = new TextBox();
             BeverageItem = new Label();
@@ -62,23 +63,24 @@
             Beverage2 = new CheckBox();
             Beverage1 = new CheckBox();
             Sets = new GroupBox();
-            label5 = new Label();
+            setBtn = new Button();
+            setCost = new Label();
             SetsNo = new Label();
             setsPrice = new Label();
-            textBox14 = new TextBox();
-            textBox15 = new TextBox();
-            textBox16 = new TextBox();
-            textBox17 = new TextBox();
-            textBox18 = new TextBox();
-            textBox19 = new TextBox();
-            textBox20 = new TextBox();
-            textBox21 = new TextBox();
-            textBox22 = new TextBox();
-            textBox23 = new TextBox();
-            textBox24 = new TextBox();
-            textBox25 = new TextBox();
+            danangQuantity = new TextBox();
+            danangPrice = new TextBox();
+            hanoiQuantity = new TextBox();
+            hanoiPrice = new TextBox();
+            lotusQuantity = new TextBox();
+            lotusPrice = new TextBox();
+            hoiQuantity = new TextBox();
+            hoiPrice = new TextBox();
+            saigonQuantity = new TextBox();
+            saigonPrice = new TextBox();
+            hueQuantity = new TextBox();
+            huePrice = new TextBox();
             setsItem = new Label();
-            checkBox1 = new CheckBox();
+            Set6 = new CheckBox();
             Set5 = new CheckBox();
             Set4 = new CheckBox();
             Set3 = new CheckBox();
@@ -95,6 +97,9 @@
             textBox37 = new TextBox();
             button1 = new Button();
             BookingBtn = new Button();
+            custIDCb = new ComboBox();
+            label4 = new Label();
+            custName = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             Beverage.SuspendLayout();
@@ -156,26 +161,26 @@
             // 
             timeName.AutoSize = true;
             timeName.Font = new Font("Perpetua Titling MT", 13.875F, FontStyle.Regular, GraphicsUnit.Point);
-            timeName.Location = new Point(858, 210);
+            timeName.Location = new Point(789, 205);
             timeName.Name = "timeName";
             timeName.Size = new Size(106, 44);
             timeName.TabIndex = 8;
             timeName.Text = "Time";
             // 
-            // comboBox1
+            // timeCb
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "Day", "Night" });
-            comboBox1.Location = new Point(1029, 212);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(284, 40);
-            comboBox1.TabIndex = 10;
+            timeCb.FormattingEnabled = true;
+            timeCb.Items.AddRange(new object[] { "Day", "Night" });
+            timeCb.Location = new Point(896, 210);
+            timeCb.Name = "timeCb";
+            timeCb.Size = new Size(235, 40);
+            timeCb.TabIndex = 10;
             // 
             // personNo
             // 
             personNo.AutoSize = true;
             personNo.Font = new Font("Perpetua Titling MT", 13.875F, FontStyle.Regular, GraphicsUnit.Point);
-            personNo.Location = new Point(1501, 210);
+            personNo.Location = new Point(1173, 205);
             personNo.Name = "personNo";
             personNo.Size = new Size(227, 44);
             personNo.TabIndex = 11;
@@ -183,7 +188,7 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(1769, 205);
+            textBox1.Location = new Point(1406, 200);
             textBox1.Multiline = true;
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(108, 49);
@@ -191,19 +196,20 @@
             // 
             // Beverage
             // 
-            Beverage.Controls.Add(label4);
+            Beverage.Controls.Add(beverageBtn);
+            Beverage.Controls.Add(bevCost);
             Beverage.Controls.Add(BeverageNo);
             Beverage.Controls.Add(label1);
-            Beverage.Controls.Add(textBox12);
-            Beverage.Controls.Add(textBox13);
-            Beverage.Controls.Add(textBox10);
-            Beverage.Controls.Add(textBox11);
-            Beverage.Controls.Add(textBox8);
-            Beverage.Controls.Add(textBox9);
-            Beverage.Controls.Add(textBox6);
-            Beverage.Controls.Add(textBox7);
-            Beverage.Controls.Add(textBox4);
-            Beverage.Controls.Add(textBox5);
+            Beverage.Controls.Add(nonQuantity);
+            Beverage.Controls.Add(nonPrice);
+            Beverage.Controls.Add(spiritQuantity);
+            Beverage.Controls.Add(spiritPrice);
+            Beverage.Controls.Add(whiskiesQuantity);
+            Beverage.Controls.Add(whiskiesPrice);
+            Beverage.Controls.Add(cocktailQuantity);
+            Beverage.Controls.Add(cocktailPrice);
+            Beverage.Controls.Add(fineQuantity);
+            Beverage.Controls.Add(finePrice);
             Beverage.Controls.Add(champQuantity);
             Beverage.Controls.Add(champPrice);
             Beverage.Controls.Add(BeverageItem);
@@ -221,15 +227,28 @@
             Beverage.TabStop = false;
             Beverage.Text = "Beverage";
             // 
-            // label4
+            // beverageBtn
             // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Goudy Old Style", 13.875F, FontStyle.Regular, GraphicsUnit.Point);
-            label4.Location = new Point(72, 634);
-            label4.Name = "label4";
-            label4.Size = new Size(338, 43);
-            label4.TabIndex = 27;
-            label4.Text = "BEVERAGE TOTAL";
+            beverageBtn.BackColor = SystemColors.ActiveCaptionText;
+            beverageBtn.Font = new Font("Times New Roman", 10.125F, FontStyle.Regular, GraphicsUnit.Point);
+            beverageBtn.ForeColor = SystemColors.ButtonFace;
+            beverageBtn.Location = new Point(453, 634);
+            beverageBtn.Name = "beverageBtn";
+            beverageBtn.Size = new Size(123, 62);
+            beverageBtn.TabIndex = 28;
+            beverageBtn.Text = "Sum";
+            beverageBtn.UseVisualStyleBackColor = false;
+            beverageBtn.Click += beverageBtn_Click;
+            // 
+            // bevCost
+            // 
+            bevCost.AutoSize = true;
+            bevCost.Font = new Font("Goudy Old Style", 13.875F, FontStyle.Regular, GraphicsUnit.Point);
+            bevCost.Location = new Point(602, 644);
+            bevCost.Name = "bevCost";
+            bevCost.Size = new Size(194, 43);
+            bevCost.TabIndex = 27;
+            bevCost.Text = "TOTAL: $0";
             // 
             // BeverageNo
             // 
@@ -251,101 +270,131 @@
             label1.TabIndex = 25;
             label1.Text = "PRICE";
             // 
-            // textBox12
+            // nonQuantity
             // 
-            textBox12.Enabled = false;
-            textBox12.Location = new Point(797, 556);
-            textBox12.Name = "textBox12";
-            textBox12.Size = new Size(129, 56);
-            textBox12.TabIndex = 24;
+            nonQuantity.Enabled = false;
+            nonQuantity.Font = new Font("Times New Roman", 13.875F, FontStyle.Regular, GraphicsUnit.Point);
+            nonQuantity.Location = new Point(797, 556);
+            nonQuantity.Name = "nonQuantity";
+            nonQuantity.Size = new Size(129, 50);
+            nonQuantity.TabIndex = 24;
+            nonQuantity.TextAlign = HorizontalAlignment.Right;
             // 
-            // textBox13
+            // nonPrice
             // 
-            textBox13.Enabled = false;
-            textBox13.Location = new Point(619, 554);
-            textBox13.Name = "textBox13";
-            textBox13.Size = new Size(129, 56);
-            textBox13.TabIndex = 23;
+            nonPrice.Enabled = false;
+            nonPrice.Font = new Font("Times New Roman", 13.875F, FontStyle.Regular, GraphicsUnit.Point);
+            nonPrice.Location = new Point(619, 554);
+            nonPrice.Name = "nonPrice";
+            nonPrice.Size = new Size(129, 50);
+            nonPrice.TabIndex = 23;
+            nonPrice.Text = "8.5";
+            nonPrice.TextAlign = HorizontalAlignment.Right;
             // 
-            // textBox10
+            // spiritQuantity
             // 
-            textBox10.Enabled = false;
-            textBox10.Location = new Point(797, 465);
-            textBox10.Name = "textBox10";
-            textBox10.Size = new Size(129, 56);
-            textBox10.TabIndex = 24;
+            spiritQuantity.Enabled = false;
+            spiritQuantity.Font = new Font("Times New Roman", 13.875F, FontStyle.Regular, GraphicsUnit.Point);
+            spiritQuantity.Location = new Point(797, 465);
+            spiritQuantity.Name = "spiritQuantity";
+            spiritQuantity.Size = new Size(129, 50);
+            spiritQuantity.TabIndex = 24;
+            spiritQuantity.TextAlign = HorizontalAlignment.Right;
             // 
-            // textBox11
+            // spiritPrice
             // 
-            textBox11.Enabled = false;
-            textBox11.Location = new Point(619, 463);
-            textBox11.Name = "textBox11";
-            textBox11.Size = new Size(129, 56);
-            textBox11.TabIndex = 23;
+            spiritPrice.Enabled = false;
+            spiritPrice.Font = new Font("Times New Roman", 13.875F, FontStyle.Regular, GraphicsUnit.Point);
+            spiritPrice.Location = new Point(619, 463);
+            spiritPrice.Name = "spiritPrice";
+            spiritPrice.Size = new Size(129, 50);
+            spiritPrice.TabIndex = 23;
+            spiritPrice.Text = "30.25";
+            spiritPrice.TextAlign = HorizontalAlignment.Right;
             // 
-            // textBox8
+            // whiskiesQuantity
             // 
-            textBox8.Enabled = false;
-            textBox8.Location = new Point(797, 383);
-            textBox8.Name = "textBox8";
-            textBox8.Size = new Size(129, 56);
-            textBox8.TabIndex = 22;
+            whiskiesQuantity.Enabled = false;
+            whiskiesQuantity.Font = new Font("Times New Roman", 13.875F, FontStyle.Regular, GraphicsUnit.Point);
+            whiskiesQuantity.Location = new Point(797, 383);
+            whiskiesQuantity.Name = "whiskiesQuantity";
+            whiskiesQuantity.Size = new Size(129, 50);
+            whiskiesQuantity.TabIndex = 22;
+            whiskiesQuantity.TextAlign = HorizontalAlignment.Right;
             // 
-            // textBox9
+            // whiskiesPrice
             // 
-            textBox9.Enabled = false;
-            textBox9.Location = new Point(619, 381);
-            textBox9.Name = "textBox9";
-            textBox9.Size = new Size(129, 56);
-            textBox9.TabIndex = 21;
+            whiskiesPrice.Enabled = false;
+            whiskiesPrice.Font = new Font("Times New Roman", 13.875F, FontStyle.Regular, GraphicsUnit.Point);
+            whiskiesPrice.Location = new Point(619, 381);
+            whiskiesPrice.Name = "whiskiesPrice";
+            whiskiesPrice.Size = new Size(129, 50);
+            whiskiesPrice.TabIndex = 21;
+            whiskiesPrice.Text = "45.25";
+            whiskiesPrice.TextAlign = HorizontalAlignment.Right;
             // 
-            // textBox6
+            // cocktailQuantity
             // 
-            textBox6.Enabled = false;
-            textBox6.Location = new Point(797, 303);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(129, 56);
-            textBox6.TabIndex = 20;
+            cocktailQuantity.Enabled = false;
+            cocktailQuantity.Font = new Font("Times New Roman", 13.875F, FontStyle.Regular, GraphicsUnit.Point);
+            cocktailQuantity.Location = new Point(797, 303);
+            cocktailQuantity.Name = "cocktailQuantity";
+            cocktailQuantity.Size = new Size(129, 50);
+            cocktailQuantity.TabIndex = 20;
+            cocktailQuantity.TextAlign = HorizontalAlignment.Right;
             // 
-            // textBox7
+            // cocktailPrice
             // 
-            textBox7.Enabled = false;
-            textBox7.Location = new Point(619, 301);
-            textBox7.Name = "textBox7";
-            textBox7.Size = new Size(129, 56);
-            textBox7.TabIndex = 19;
+            cocktailPrice.Enabled = false;
+            cocktailPrice.Font = new Font("Times New Roman", 13.875F, FontStyle.Regular, GraphicsUnit.Point);
+            cocktailPrice.Location = new Point(619, 301);
+            cocktailPrice.Name = "cocktailPrice";
+            cocktailPrice.Size = new Size(129, 50);
+            cocktailPrice.TabIndex = 19;
+            cocktailPrice.Text = "10.25";
+            cocktailPrice.TextAlign = HorizontalAlignment.Right;
             // 
-            // textBox4
+            // fineQuantity
             // 
-            textBox4.Enabled = false;
-            textBox4.Location = new Point(797, 223);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(129, 56);
-            textBox4.TabIndex = 18;
+            fineQuantity.Enabled = false;
+            fineQuantity.Font = new Font("Times New Roman", 13.875F, FontStyle.Regular, GraphicsUnit.Point);
+            fineQuantity.Location = new Point(797, 223);
+            fineQuantity.Name = "fineQuantity";
+            fineQuantity.Size = new Size(129, 50);
+            fineQuantity.TabIndex = 18;
+            fineQuantity.TextAlign = HorizontalAlignment.Right;
             // 
-            // textBox5
+            // finePrice
             // 
-            textBox5.Enabled = false;
-            textBox5.Location = new Point(619, 221);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(129, 56);
-            textBox5.TabIndex = 17;
+            finePrice.Enabled = false;
+            finePrice.Font = new Font("Times New Roman", 13.875F, FontStyle.Regular, GraphicsUnit.Point);
+            finePrice.Location = new Point(619, 221);
+            finePrice.Name = "finePrice";
+            finePrice.Size = new Size(129, 50);
+            finePrice.TabIndex = 17;
+            finePrice.Text = "85.75";
+            finePrice.TextAlign = HorizontalAlignment.Right;
             // 
             // champQuantity
             // 
             champQuantity.Enabled = false;
+            champQuantity.Font = new Font("Times New Roman", 13.875F, FontStyle.Regular, GraphicsUnit.Point);
             champQuantity.Location = new Point(797, 141);
             champQuantity.Name = "champQuantity";
-            champQuantity.Size = new Size(129, 56);
+            champQuantity.Size = new Size(129, 50);
             champQuantity.TabIndex = 16;
+            champQuantity.TextAlign = HorizontalAlignment.Right;
             // 
             // champPrice
             // 
             champPrice.Enabled = false;
+            champPrice.Font = new Font("Times New Roman", 13.875F, FontStyle.Regular, GraphicsUnit.Point);
             champPrice.Location = new Point(615, 139);
             champPrice.Name = "champPrice";
-            champPrice.Size = new Size(129, 56);
+            champPrice.Size = new Size(129, 50);
             champPrice.TabIndex = 15;
+            champPrice.Text = "75.5";
+            champPrice.TextAlign = HorizontalAlignment.Right;
             // 
             // BeverageItem
             // 
@@ -367,6 +416,7 @@
             Beverage6.TabIndex = 5;
             Beverage6.Text = "Non-Alcoholic (Water, Tea, Coffee,...)";
             Beverage6.UseVisualStyleBackColor = true;
+            Beverage6.CheckedChanged += Beverage6_CheckedChanged;
             // 
             // Beverage5
             // 
@@ -374,10 +424,11 @@
             Beverage5.Font = new Font("Goudy Old Style", 12F, FontStyle.Bold, GraphicsUnit.Point);
             Beverage5.Location = new Point(31, 478);
             Beverage5.Name = "Beverage5";
-            Beverage5.Size = new Size(590, 41);
+            Beverage5.Size = new Size(353, 41);
             Beverage5.TabIndex = 4;
-            Beverage5.Text = "Artisanal Spirits (Gins, Vodkas, Tequilas)";
+            Beverage5.Text = "Gins, Vodkas, Tequilas";
             Beverage5.UseVisualStyleBackColor = true;
+            Beverage5.CheckedChanged += Beverage5_CheckedChanged;
             // 
             // Beverage4
             // 
@@ -389,6 +440,7 @@
             Beverage4.TabIndex = 3;
             Beverage4.Text = "Whiskies and Cognacs";
             Beverage4.UseVisualStyleBackColor = true;
+            Beverage4.CheckedChanged += Beverage4_CheckedChanged;
             // 
             // Beverage3
             // 
@@ -400,6 +452,7 @@
             Beverage3.TabIndex = 2;
             Beverage3.Text = "Craft Cocktails";
             Beverage3.UseVisualStyleBackColor = true;
+            Beverage3.CheckedChanged += Beverage3_CheckedChanged;
             // 
             // Beverage2
             // 
@@ -411,6 +464,7 @@
             Beverage2.TabIndex = 1;
             Beverage2.Text = "Fine Wines";
             Beverage2.UseVisualStyleBackColor = true;
+            Beverage2.CheckedChanged += Beverage2_CheckedChanged;
             // 
             // Beverage1
             // 
@@ -426,23 +480,24 @@
             // 
             // Sets
             // 
-            Sets.Controls.Add(label5);
+            Sets.Controls.Add(setBtn);
+            Sets.Controls.Add(setCost);
             Sets.Controls.Add(SetsNo);
             Sets.Controls.Add(setsPrice);
-            Sets.Controls.Add(textBox14);
-            Sets.Controls.Add(textBox15);
-            Sets.Controls.Add(textBox16);
-            Sets.Controls.Add(textBox17);
-            Sets.Controls.Add(textBox18);
-            Sets.Controls.Add(textBox19);
-            Sets.Controls.Add(textBox20);
-            Sets.Controls.Add(textBox21);
-            Sets.Controls.Add(textBox22);
-            Sets.Controls.Add(textBox23);
-            Sets.Controls.Add(textBox24);
-            Sets.Controls.Add(textBox25);
+            Sets.Controls.Add(danangQuantity);
+            Sets.Controls.Add(danangPrice);
+            Sets.Controls.Add(hanoiQuantity);
+            Sets.Controls.Add(hanoiPrice);
+            Sets.Controls.Add(lotusQuantity);
+            Sets.Controls.Add(lotusPrice);
+            Sets.Controls.Add(hoiQuantity);
+            Sets.Controls.Add(hoiPrice);
+            Sets.Controls.Add(saigonQuantity);
+            Sets.Controls.Add(saigonPrice);
+            Sets.Controls.Add(hueQuantity);
+            Sets.Controls.Add(huePrice);
             Sets.Controls.Add(setsItem);
-            Sets.Controls.Add(checkBox1);
+            Sets.Controls.Add(Set6);
             Sets.Controls.Add(Set5);
             Sets.Controls.Add(Set4);
             Sets.Controls.Add(Set3);
@@ -456,15 +511,28 @@
             Sets.TabStop = false;
             Sets.Text = "LUXURY SETS";
             // 
-            // label5
+            // setBtn
             // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Goudy Old Style", 13.875F, FontStyle.Regular, GraphicsUnit.Point);
-            label5.Location = new Point(72, 634);
-            label5.Name = "label5";
-            label5.Size = new Size(247, 43);
-            label5.TabIndex = 28;
-            label5.Text = "MEAL TOTAL";
+            setBtn.BackColor = SystemColors.ActiveCaptionText;
+            setBtn.Font = new Font("Times New Roman", 10.125F, FontStyle.Regular, GraphicsUnit.Point);
+            setBtn.ForeColor = SystemColors.ButtonFace;
+            setBtn.Location = new Point(452, 634);
+            setBtn.Name = "setBtn";
+            setBtn.Size = new Size(123, 62);
+            setBtn.TabIndex = 29;
+            setBtn.Text = "Sum";
+            setBtn.UseVisualStyleBackColor = false;
+            setBtn.Click += setBtn_Click;
+            // 
+            // setCost
+            // 
+            setCost.AutoSize = true;
+            setCost.Font = new Font("Goudy Old Style", 13.875F, FontStyle.Regular, GraphicsUnit.Point);
+            setCost.Location = new Point(619, 641);
+            setCost.Name = "setCost";
+            setCost.Size = new Size(194, 43);
+            setCost.TabIndex = 28;
+            setCost.Text = "TOTAL: $0";
             // 
             // SetsNo
             // 
@@ -486,89 +554,137 @@
             setsPrice.TabIndex = 25;
             setsPrice.Text = "PRICE";
             // 
-            // textBox14
+            // danangQuantity
             // 
-            textBox14.Location = new Point(797, 556);
-            textBox14.Name = "textBox14";
-            textBox14.Size = new Size(129, 56);
-            textBox14.TabIndex = 24;
+            danangQuantity.Enabled = false;
+            danangQuantity.Font = new Font("Times New Roman", 15F, FontStyle.Regular, GraphicsUnit.Point);
+            danangQuantity.Location = new Point(797, 556);
+            danangQuantity.Name = "danangQuantity";
+            danangQuantity.Size = new Size(129, 53);
+            danangQuantity.TabIndex = 24;
+            danangQuantity.Text = "0";
+            danangQuantity.TextAlign = HorizontalAlignment.Right;
             // 
-            // textBox15
+            // danangPrice
             // 
-            textBox15.Location = new Point(619, 554);
-            textBox15.Name = "textBox15";
-            textBox15.Size = new Size(129, 56);
-            textBox15.TabIndex = 23;
+            danangPrice.Enabled = false;
+            danangPrice.Font = new Font("Times New Roman", 15F, FontStyle.Regular, GraphicsUnit.Point);
+            danangPrice.Location = new Point(619, 554);
+            danangPrice.Name = "danangPrice";
+            danangPrice.Size = new Size(129, 53);
+            danangPrice.TabIndex = 23;
+            danangPrice.Text = "50.5";
+            danangPrice.TextAlign = HorizontalAlignment.Right;
             // 
-            // textBox16
+            // hanoiQuantity
             // 
-            textBox16.Location = new Point(797, 465);
-            textBox16.Name = "textBox16";
-            textBox16.Size = new Size(129, 56);
-            textBox16.TabIndex = 24;
+            hanoiQuantity.Enabled = false;
+            hanoiQuantity.Font = new Font("Times New Roman", 15F, FontStyle.Regular, GraphicsUnit.Point);
+            hanoiQuantity.Location = new Point(797, 465);
+            hanoiQuantity.Name = "hanoiQuantity";
+            hanoiQuantity.Size = new Size(129, 53);
+            hanoiQuantity.TabIndex = 24;
+            hanoiQuantity.Text = "0";
+            hanoiQuantity.TextAlign = HorizontalAlignment.Right;
             // 
-            // textBox17
+            // hanoiPrice
             // 
-            textBox17.Location = new Point(619, 463);
-            textBox17.Name = "textBox17";
-            textBox17.Size = new Size(129, 56);
-            textBox17.TabIndex = 23;
+            hanoiPrice.Enabled = false;
+            hanoiPrice.Font = new Font("Times New Roman", 15F, FontStyle.Regular, GraphicsUnit.Point);
+            hanoiPrice.Location = new Point(619, 463);
+            hanoiPrice.Name = "hanoiPrice";
+            hanoiPrice.Size = new Size(129, 53);
+            hanoiPrice.TabIndex = 23;
+            hanoiPrice.Text = "49";
+            hanoiPrice.TextAlign = HorizontalAlignment.Right;
             // 
-            // textBox18
+            // lotusQuantity
             // 
-            textBox18.Location = new Point(797, 383);
-            textBox18.Name = "textBox18";
-            textBox18.Size = new Size(129, 56);
-            textBox18.TabIndex = 22;
+            lotusQuantity.Enabled = false;
+            lotusQuantity.Font = new Font("Times New Roman", 15F, FontStyle.Regular, GraphicsUnit.Point);
+            lotusQuantity.Location = new Point(797, 383);
+            lotusQuantity.Name = "lotusQuantity";
+            lotusQuantity.Size = new Size(129, 53);
+            lotusQuantity.TabIndex = 22;
+            lotusQuantity.Text = "0";
+            lotusQuantity.TextAlign = HorizontalAlignment.Right;
             // 
-            // textBox19
+            // lotusPrice
             // 
-            textBox19.Location = new Point(619, 381);
-            textBox19.Name = "textBox19";
-            textBox19.Size = new Size(129, 56);
-            textBox19.TabIndex = 21;
+            lotusPrice.Enabled = false;
+            lotusPrice.Font = new Font("Times New Roman", 15F, FontStyle.Regular, GraphicsUnit.Point);
+            lotusPrice.Location = new Point(619, 381);
+            lotusPrice.Name = "lotusPrice";
+            lotusPrice.Size = new Size(129, 53);
+            lotusPrice.TabIndex = 21;
+            lotusPrice.Text = "45";
+            lotusPrice.TextAlign = HorizontalAlignment.Right;
             // 
-            // textBox20
+            // hoiQuantity
             // 
-            textBox20.Location = new Point(797, 303);
-            textBox20.Name = "textBox20";
-            textBox20.Size = new Size(129, 56);
-            textBox20.TabIndex = 20;
+            hoiQuantity.Enabled = false;
+            hoiQuantity.Font = new Font("Times New Roman", 15F, FontStyle.Regular, GraphicsUnit.Point);
+            hoiQuantity.Location = new Point(797, 303);
+            hoiQuantity.Name = "hoiQuantity";
+            hoiQuantity.Size = new Size(129, 53);
+            hoiQuantity.TabIndex = 20;
+            hoiQuantity.Text = "0";
+            hoiQuantity.TextAlign = HorizontalAlignment.Right;
             // 
-            // textBox21
+            // hoiPrice
             // 
-            textBox21.Location = new Point(619, 301);
-            textBox21.Name = "textBox21";
-            textBox21.Size = new Size(129, 56);
-            textBox21.TabIndex = 19;
+            hoiPrice.Enabled = false;
+            hoiPrice.Font = new Font("Times New Roman", 15F, FontStyle.Regular, GraphicsUnit.Point);
+            hoiPrice.Location = new Point(619, 301);
+            hoiPrice.Name = "hoiPrice";
+            hoiPrice.Size = new Size(129, 53);
+            hoiPrice.TabIndex = 19;
+            hoiPrice.Text = "50";
+            hoiPrice.TextAlign = HorizontalAlignment.Right;
             // 
-            // textBox22
+            // saigonQuantity
             // 
-            textBox22.Location = new Point(797, 223);
-            textBox22.Name = "textBox22";
-            textBox22.Size = new Size(129, 56);
-            textBox22.TabIndex = 18;
+            saigonQuantity.Enabled = false;
+            saigonQuantity.Font = new Font("Times New Roman", 15F, FontStyle.Regular, GraphicsUnit.Point);
+            saigonQuantity.Location = new Point(797, 223);
+            saigonQuantity.Name = "saigonQuantity";
+            saigonQuantity.Size = new Size(129, 53);
+            saigonQuantity.TabIndex = 18;
+            saigonQuantity.Text = "0";
+            saigonQuantity.TextAlign = HorizontalAlignment.Right;
             // 
-            // textBox23
+            // saigonPrice
             // 
-            textBox23.Location = new Point(619, 221);
-            textBox23.Name = "textBox23";
-            textBox23.Size = new Size(129, 56);
-            textBox23.TabIndex = 17;
+            saigonPrice.Enabled = false;
+            saigonPrice.Font = new Font("Times New Roman", 15F, FontStyle.Regular, GraphicsUnit.Point);
+            saigonPrice.Location = new Point(619, 221);
+            saigonPrice.Name = "saigonPrice";
+            saigonPrice.Size = new Size(129, 53);
+            saigonPrice.TabIndex = 17;
+            saigonPrice.Text = "52";
+            saigonPrice.TextAlign = HorizontalAlignment.Right;
             // 
-            // textBox24
+            // hueQuantity
             // 
-            textBox24.Location = new Point(797, 141);
-            textBox24.Name = "textBox24";
-            textBox24.Size = new Size(129, 56);
-            textBox24.TabIndex = 16;
+            hueQuantity.Enabled = false;
+            hueQuantity.Font = new Font("Times New Roman", 15F, FontStyle.Regular, GraphicsUnit.Point);
+            hueQuantity.Location = new Point(797, 141);
+            hueQuantity.Name = "hueQuantity";
+            hueQuantity.Size = new Size(129, 53);
+            hueQuantity.TabIndex = 16;
+            hueQuantity.Text = "0";
+            hueQuantity.TextAlign = HorizontalAlignment.Right;
             // 
-            // textBox25
+            // huePrice
             // 
-            textBox25.Location = new Point(619, 139);
-            textBox25.Name = "textBox25";
-            textBox25.Size = new Size(129, 56);
-            textBox25.TabIndex = 15;
+            huePrice.Enabled = false;
+            huePrice.Font = new Font("Times New Roman", 15F, FontStyle.Regular, GraphicsUnit.Point);
+            huePrice.Location = new Point(619, 139);
+            huePrice.Name = "huePrice";
+            huePrice.Size = new Size(129, 53);
+            huePrice.TabIndex = 15;
+            huePrice.Text = "65";
+            huePrice.TextAlign = HorizontalAlignment.Right;
             // 
             // setsItem
             // 
@@ -580,27 +696,29 @@
             setsItem.TabIndex = 14;
             setsItem.Text = "ITEMS";
             // 
-            // checkBox1
+            // Set6
             // 
-            checkBox1.AutoSize = true;
-            checkBox1.Font = new Font("Goudy Old Style", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            checkBox1.Location = new Point(31, 569);
-            checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(396, 41);
-            checkBox1.TabIndex = 5;
-            checkBox1.Text = "Serenity Danang (6 dishes)";
-            checkBox1.UseVisualStyleBackColor = true;
+            Set6.AutoSize = true;
+            Set6.Font = new Font("Goudy Old Style", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            Set6.Location = new Point(31, 569);
+            Set6.Name = "Set6";
+            Set6.Size = new Size(396, 41);
+            Set6.TabIndex = 5;
+            Set6.Text = "Serenity Danang (6 dishes)";
+            Set6.UseVisualStyleBackColor = true;
+            Set6.CheckedChanged += Set6_CheckedChanged;
             // 
             // Set5
             // 
             Set5.AutoSize = true;
             Set5.Font = new Font("Goudy Old Style", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            Set5.Location = new Point(31, 478);
+            Set5.Location = new Point(31, 480);
             Set5.Name = "Set5";
             Set5.Size = new Size(389, 41);
             Set5.TabIndex = 4;
             Set5.Text = "Exquisite Hanoi (7 dishes)";
             Set5.UseVisualStyleBackColor = true;
+            Set5.CheckedChanged += Set5_CheckedChanged;
             // 
             // Set4
             // 
@@ -612,6 +730,7 @@
             Set4.TabIndex = 3;
             Set4.Text = "Royal Lotus (Plant-based) (6 dishes)";
             Set4.UseVisualStyleBackColor = true;
+            Set4.CheckedChanged += Set4_CheckedChanged;
             // 
             // Set3
             // 
@@ -623,6 +742,7 @@
             Set3.TabIndex = 2;
             Set3.Text = "Majestic Hoi An (7 dishes)";
             Set3.UseVisualStyleBackColor = true;
+            Set3.CheckedChanged += Set3_CheckedChanged;
             // 
             // Set2
             // 
@@ -634,6 +754,7 @@
             Set2.TabIndex = 1;
             Set2.Text = "Opulent Saigon (7 dishes)";
             Set2.UseVisualStyleBackColor = true;
+            Set2.CheckedChanged += Set2_CheckedChanged;
             // 
             // Set1
             // 
@@ -646,6 +767,7 @@
             Set1.Text = "Hue's Royal Indulgence(10 dishes)";
             Set1.TextAlign = ContentAlignment.BottomLeft;
             Set1.UseVisualStyleBackColor = true;
+            Set1.CheckedChanged += Set1_CheckedChanged;
             // 
             // payment
             // 
@@ -759,11 +881,44 @@
             BookingBtn.Text = "ADD BOOKING";
             BookingBtn.UseVisualStyleBackColor = false;
             // 
+            // custIDCb
+            // 
+            custIDCb.FormattingEnabled = true;
+            custIDCb.Items.AddRange(new object[] { "Day", "Night" });
+            custIDCb.Location = new Point(1711, 207);
+            custIDCb.Name = "custIDCb";
+            custIDCb.Size = new Size(226, 40);
+            custIDCb.TabIndex = 31;
+            custIDCb.SelectionChangeCommitted += custIDCb_SelectionChangeCommitted;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Perpetua Titling MT", 13.875F, FontStyle.Regular, GraphicsUnit.Point);
+            label4.Location = new Point(1548, 203);
+            label4.Name = "label4";
+            label4.Size = new Size(157, 44);
+            label4.TabIndex = 30;
+            label4.Text = "CUSTID";
+            // 
+            // custName
+            // 
+            custName.AutoSize = true;
+            custName.Font = new Font("Perpetua Titling MT", 13.875F, FontStyle.Regular, GraphicsUnit.Point);
+            custName.ForeColor = Color.IndianRed;
+            custName.Location = new Point(1570, 267);
+            custName.Name = "custName";
+            custName.Size = new Size(0, 44);
+            custName.TabIndex = 32;
+            // 
             // Booking
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(2310, 1320);
+            Controls.Add(custName);
+            Controls.Add(custIDCb);
+            Controls.Add(label4);
             Controls.Add(button1);
             Controls.Add(BookingBtn);
             Controls.Add(payment);
@@ -771,7 +926,7 @@
             Controls.Add(Beverage);
             Controls.Add(textBox1);
             Controls.Add(personNo);
-            Controls.Add(comboBox1);
+            Controls.Add(timeCb);
             Controls.Add(timeName);
             Controls.Add(dateTimePicker1);
             Controls.Add(Date);
@@ -779,6 +934,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "Booking";
             StartPosition = FormStartPosition.CenterScreen;
+            Load += Booking_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -799,7 +955,7 @@
         private Label Date;
         private DateTimePicker dateTimePicker1;
         private Label timeName;
-        private ComboBox comboBox1;
+        private ComboBox timeCb;
         private Label personNo;
         private TextBox textBox1;
         private GroupBox Beverage;
@@ -810,16 +966,16 @@
         private CheckBox Beverage2;
         private CheckBox Beverage1;
         private Label BeverageItem;
-        private TextBox textBox12;
-        private TextBox textBox13;
-        private TextBox textBox10;
-        private TextBox textBox11;
-        private TextBox textBox8;
-        private TextBox textBox9;
-        private TextBox textBox6;
-        private TextBox textBox7;
-        private TextBox textBox4;
-        private TextBox textBox5;
+        private TextBox nonQuantity;
+        private TextBox nonPrice;
+        private TextBox spiritQuantity;
+        private TextBox spiritPrice;
+        private TextBox whiskiesQuantity;
+        private TextBox whiskiesPrice;
+        private TextBox cocktailQuantity;
+        private TextBox cocktailPrice;
+        private TextBox fineQuantity;
+        private TextBox finePrice;
         private TextBox champQuantity;
         private TextBox champPrice;
         private Label BeverageNo;
@@ -827,20 +983,20 @@
         private GroupBox Sets;
         private Label SetsNo;
         private Label setsPrice;
-        private TextBox textBox14;
-        private TextBox textBox15;
-        private TextBox textBox16;
-        private TextBox textBox17;
-        private TextBox textBox18;
-        private TextBox textBox19;
-        private TextBox textBox20;
-        private TextBox textBox21;
-        private TextBox textBox22;
-        private TextBox textBox23;
-        private TextBox textBox24;
-        private TextBox textBox25;
+        private TextBox danangQuantity;
+        private TextBox danangPrice;
+        private TextBox hanoiQuantity;
+        private TextBox hanoiPrice;
+        private TextBox lotusQuantity;
+        private TextBox lotusPrice;
+        private TextBox hoiQuantity;
+        private TextBox hoiPrice;
+        private TextBox saigonQuantity;
+        private TextBox saigonPrice;
+        private TextBox hueQuantity;
+        private TextBox huePrice;
         private Label setsItem;
-        private CheckBox checkBox1;
+        private CheckBox Set6;
         private CheckBox Set5;
         private CheckBox Set4;
         private CheckBox Set3;
@@ -856,9 +1012,14 @@
         private TextBox textBox27;
         private TextBox textBox26;
         private PictureBox pictureBox1;
-        private Label label4;
-        private Label label5;
+        private Label bevCost;
+        private Label setCost;
         private Button button1;
         private Button BookingBtn;
+        private Button beverageBtn;
+        private Button setBtn;
+        private ComboBox custIDCb;
+        private Label label4;
+        private Label custName;
     }
 }
