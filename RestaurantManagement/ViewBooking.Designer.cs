@@ -29,16 +29,19 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ViewBooking));
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             panel1 = new Panel();
             pictureBox1 = new PictureBox();
             bookingName = new Label();
             BeverageItem = new Label();
-            dataGridView1 = new DataGridView();
             button1 = new Button();
             button2 = new Button();
+            BookingDGV = new DataGridView();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)BookingDGV).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -60,6 +63,7 @@
             pictureBox1.Size = new Size(85, 81);
             pictureBox1.TabIndex = 10;
             pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
             // 
             // bookingName
             // 
@@ -81,18 +85,6 @@
             BeverageItem.Size = new Size(316, 48);
             BeverageItem.TabIndex = 15;
             BeverageItem.Text = "BOOKING LIST";
-            // 
-            // dataGridView1
-            // 
-            dataGridView1.BackgroundColor = SystemColors.Control;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.GridColor = SystemColors.Control;
-            dataGridView1.Location = new Point(73, 271);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 82;
-            dataGridView1.RowTemplate.Height = 41;
-            dataGridView1.Size = new Size(2188, 913);
-            dataGridView1.TabIndex = 16;
             // 
             // button1
             // 
@@ -120,14 +112,62 @@
             button2.Text = "RESET";
             button2.UseVisualStyleBackColor = false;
             // 
+            // BookingDGV
+            // 
+            BookingDGV.AllowUserToOrderColumns = true;
+            BookingDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            BookingDGV.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCells;
+            BookingDGV.BackgroundColor = SystemColors.ButtonFace;
+            BookingDGV.BorderStyle = BorderStyle.None;
+            BookingDGV.ClipboardCopyMode = DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
+            BookingDGV.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.White;
+            dataGridViewCellStyle1.Font = new Font("Times New Roman", 13.875F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.ButtonHighlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.ActiveCaptionText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            BookingDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            BookingDGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.ActiveCaption;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.ButtonHighlight;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            BookingDGV.DefaultCellStyle = dataGridViewCellStyle2;
+            BookingDGV.GridColor = SystemColors.Control;
+            BookingDGV.Location = new Point(75, 244);
+            BookingDGV.Name = "BookingDGV";
+            BookingDGV.ReadOnly = true;
+            BookingDGV.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.White;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = Color.White;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.ActiveCaptionText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            BookingDGV.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            BookingDGV.RowHeadersVisible = false;
+            BookingDGV.RowHeadersWidth = 82;
+            BookingDGV.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            BookingDGV.RowTemplate.Height = 41;
+            BookingDGV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            BookingDGV.Size = new Size(2160, 935);
+            BookingDGV.TabIndex = 52;
+            BookingDGV.CellContentClick += BookingDGV_CellContentClick;
+            // 
             // ViewBooking
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(2310, 1320);
+            Controls.Add(BookingDGV);
             Controls.Add(button2);
             Controls.Add(button1);
-            Controls.Add(dataGridView1);
             Controls.Add(BeverageItem);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
@@ -138,7 +178,7 @@
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)BookingDGV).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -149,8 +189,8 @@
         private PictureBox pictureBox1;
         private Label bookingName;
         private Label BeverageItem;
-        private DataGridView dataGridView1;
         private Button button1;
         private Button button2;
+        private DataGridView BookingDGV;
     }
 }

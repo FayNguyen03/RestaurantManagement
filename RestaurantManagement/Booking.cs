@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Data.SqlClient;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using Microsoft.VisualBasic;
 
 namespace RestaurantManagement
 {
@@ -27,6 +28,17 @@ namespace RestaurantManagement
             Application.Exit();
         }
 
+        decimal setcost = 0m, bevcost = 0m, grandtotal = 0.0m, balance = 0.0m;
+        string sets = "", beverages = "";
+        int custID;
+
+        private void resetTextBox(System.Windows.Forms.TextBox Price, System.Windows.Forms.TextBox quantity, decimal price)
+        {
+            Price.Enabled = false;
+            quantity.Enabled = false;
+            Price.Text = price.ToString();
+            quantity.Text = "";
+        }
         private void Beverage1_CheckedChanged(object sender, EventArgs e)
         {
             if (Beverage1.Checked == true)
@@ -36,10 +48,7 @@ namespace RestaurantManagement
             }
             else
             {
-                champPrice.Enabled = false;
-                champQuantity.Enabled = false;
-                champPrice.Text = "75.5";
-                champQuantity.Text = "";
+                resetTextBox(champPrice, champQuantity, 75.5m);
             }
 
         }
@@ -54,10 +63,7 @@ namespace RestaurantManagement
             }
             else
             {
-                finePrice.Enabled = false;
-                fineQuantity.Enabled = false;
-                finePrice.Text = "85.75";
-                fineQuantity.Text = "";
+                resetTextBox(finePrice, fineQuantity, 85.75m);
             }
         }
 
@@ -70,10 +76,7 @@ namespace RestaurantManagement
             }
             else
             {
-                cocktailPrice.Enabled = false;
-                cocktailQuantity.Enabled = false;
-                cocktailPrice.Text = "10.25";
-                cocktailQuantity.Text = "";
+                resetTextBox(cocktailPrice, cocktailQuantity, 10.25m);
             }
         }
 
@@ -86,10 +89,7 @@ namespace RestaurantManagement
             }
             else
             {
-                whiskiesPrice.Enabled = false;
-                whiskiesQuantity.Enabled = false;
-                whiskiesPrice.Text = "45.25";
-                whiskiesQuantity.Text = "";
+                resetTextBox(whiskiesPrice, whiskiesQuantity, 45.25m);
             }
         }
 
@@ -102,10 +102,7 @@ namespace RestaurantManagement
             }
             else
             {
-                spiritPrice.Enabled = false;
-                spiritQuantity.Enabled = false;
-                spiritPrice.Text = "30.25";
-                spiritQuantity.Text = "";
+                resetTextBox(spiritPrice, spiritQuantity, 30.25m);
             }
         }
 
@@ -118,10 +115,7 @@ namespace RestaurantManagement
             }
             else
             {
-                nonPrice.Enabled = false;
-                nonQuantity.Enabled = false;
-                nonPrice.Text = "8.5";
-                nonQuantity.Text = "";
+                resetTextBox(nonPrice, nonQuantity, 8.5m);
             }
         }
 
@@ -134,10 +128,7 @@ namespace RestaurantManagement
             }
             else
             {
-                huePrice.Enabled = false;
-                hueQuantity.Enabled = false;
-                huePrice.Text = "65";
-                hueQuantity.Text = "";
+                resetTextBox(huePrice, hueQuantity, 65m);
             }
         }
 
@@ -150,10 +141,7 @@ namespace RestaurantManagement
             }
             else
             {
-                saigonPrice.Enabled = false;
-                saigonQuantity.Enabled = false;
-                saigonPrice.Text = "52";
-                saigonQuantity.Text = "";
+                resetTextBox(saigonPrice, saigonQuantity, 52m);
             }
         }
 
@@ -166,26 +154,20 @@ namespace RestaurantManagement
             }
             else
             {
-                hoiPrice.Enabled = false;
-                hoiQuantity.Enabled = false;
-                hoiPrice.Text = "50";
-                hoiQuantity.Text = "";
+                resetTextBox(hoiPrice, hoiQuantity, 50m);
             }
         }
 
         private void Set5_CheckedChanged(object sender, EventArgs e)
         {
-            if (Set4.Checked == true)
+            if (Set5.Checked == true)
             {
                 hanoiPrice.Enabled = true;
                 hanoiQuantity.Enabled = true;
             }
             else
             {
-                hoiPrice.Enabled = false;
-                hoiQuantity.Enabled = false;
-                hoiPrice.Text = "49";
-                hoiQuantity.Text = "";
+                resetTextBox(hanoiPrice, hanoiQuantity, 49m);
             }
         }
 
@@ -198,10 +180,7 @@ namespace RestaurantManagement
             }
             else
             {
-                lotusPrice.Enabled = false;
-                lotusQuantity.Enabled = false;
-                lotusPrice.Text = "45";
-                lotusQuantity.Text = "";
+                resetTextBox(lotusPrice, lotusQuantity, 45m);
             }
         }
 
@@ -214,10 +193,7 @@ namespace RestaurantManagement
             }
             else
             {
-                danangPrice.Enabled = false;
-                danangQuantity.Enabled = false;
-                danangPrice.Text = "50.5";
-                danangQuantity.Text = "";
+                resetTextBox(danangPrice, danangQuantity, 50.5m);
             }
         }
 
@@ -228,13 +204,14 @@ namespace RestaurantManagement
             //champagne
             if (Beverage1.Checked == true)
             {
-                if (champQuantity.Text != "")
+                if (champQuantity.Text == "")
                 {
                     MessageBox.Show("Enter the quanity");
                 }
                 else
                 {
                     bev1 = Convert.ToDecimal(champPrice.Text) * Convert.ToInt32(champQuantity.Text);
+                    beverages += "Champagne ";
                 }
             }
 
@@ -249,6 +226,7 @@ namespace RestaurantManagement
                 else
                 {
                     bev2 = Convert.ToDecimal(finePrice.Text) * Convert.ToInt32(fineQuantity.Text);
+                    beverages += "Fine Wines ";
                 }
             }
 
@@ -262,6 +240,7 @@ namespace RestaurantManagement
                 else
                 {
                     bev3 = Convert.ToDecimal(cocktailPrice.Text) * Convert.ToInt32(cocktailQuantity.Text);
+                    beverages += "Cocktail ";
                 }
             }
 
@@ -276,6 +255,7 @@ namespace RestaurantManagement
                 else
                 {
                     bev4 = Convert.ToDecimal(whiskiesPrice.Text) * Convert.ToInt32(whiskiesQuantity.Text);
+                    beverages += "Whiskies ";
                 }
             }
 
@@ -289,6 +269,7 @@ namespace RestaurantManagement
                 else
                 {
                     bev5 = Convert.ToDecimal(spiritPrice.Text) * Convert.ToInt32(spiritQuantity.Text);
+                    beverages += "Spirits ";
                 }
             }
 
@@ -303,12 +284,14 @@ namespace RestaurantManagement
                 else
                 {
                     bev6 = Convert.ToDecimal(nonPrice.Text) * Convert.ToInt32(nonQuantity.Text);
+                    beverages += "Non-Alcohol ";
                 }
             }
 
 
-            decimal bevcost = bev1 + bev2 + bev3 + bev4 + bev5 + bev6;
-
+            bevcost = bev1 + bev2 + bev3 + bev4 + bev5 + bev6;
+            grandtotal = bevcost + setcost + Convert.ToDecimal(serviceFee.Text);
+            grandTotal.Text = grandtotal.ToString();
             bevCost.Text = "TOTAL: $" + bevcost.ToString();
 
         }
@@ -327,6 +310,7 @@ namespace RestaurantManagement
                 else
                 {
                     set1 = Convert.ToDecimal(huePrice.Text) * Convert.ToInt32(hueQuantity.Text);
+                    sets += "Hue " + hueQuantity + ";";
                 }
             }
 
@@ -341,6 +325,7 @@ namespace RestaurantManagement
                 else
                 {
                     set2 = Convert.ToDecimal(saigonPrice.Text) * Convert.ToInt32(saigonQuantity.Text);
+                    sets += "SaiGon " + saigonQuantity + ";";
                 }
             }
 
@@ -354,6 +339,7 @@ namespace RestaurantManagement
                 else
                 {
                     set3 = Convert.ToDecimal(hoiPrice.Text) * Convert.ToInt32(hoiQuantity.Text);
+                    sets += "HoiAn " + hoiQuantity + ";";
                 }
             }
 
@@ -368,6 +354,7 @@ namespace RestaurantManagement
                 else
                 {
                     set4 = Convert.ToDecimal(lotusPrice.Text) * Convert.ToInt32(lotusQuantity.Text);
+                    sets += "Lotus " + lotusQuantity + ";";
                 }
             }
 
@@ -381,6 +368,7 @@ namespace RestaurantManagement
                 else
                 {
                     set5 = Convert.ToDecimal(hanoiPrice.Text) * Convert.ToInt32(hanoiQuantity.Text);
+                    sets += "HaNoi " + hanoiQuantity + ";";
                 }
             }
 
@@ -388,19 +376,28 @@ namespace RestaurantManagement
             //danang
             if (Set6.Checked == true)
             {
-                if (nonQuantity.Text == "")
+                if (danangQuantity.Text == "")
                 {
                     MessageBox.Show("Enter the quanity");
                 }
                 else
                 {
-                    set6 = Convert.ToDecimal(nonPrice.Text) * Convert.ToInt32(nonQuantity.Text);
+                    set6 = Convert.ToDecimal(danangPrice.Text) * Convert.ToInt32(danangQuantity.Text);
+                    sets += "DaNang " + danangQuantity + ";";
                 }
             }
 
 
-            decimal setcost = set1 + set2 + set3 + set4 + set5 + set6;
-
+            setcost = set1 + set2 + set3 + set4 + set5 + set6;
+            if (serviceFee.Text != "")
+            {
+                grandtotal = bevcost + setcost + Convert.ToDecimal(serviceFee.Text);
+            }
+            else
+            {
+                grandtotal = bevcost + setcost;
+            }
+            grandTotal.Text = grandtotal.ToString();
             setCost.Text = "TOTAL: $" + setcost.ToString();
         }
 
@@ -449,6 +446,54 @@ namespace RestaurantManagement
         {
             fetchCustName();
 
+        }
+
+        private void serviceFee_TextChanged(object sender, EventArgs e)
+        {
+            if (serviceFee.Text != "")
+            {
+                grandtotal = bevcost + setcost + Convert.ToDecimal(serviceFee.Text);
+
+            }
+            grandTotal.Text = grandtotal.ToString();
+            if (deposit.Text != "")
+            {
+                BalanceTb.Text = grandtotal.ToString();
+            }
+            else
+            {
+                balance = grandtotal - Convert.ToDecimal(deposit.Text);
+            }
+        }
+
+        private void deposit_TextChanged(object sender, EventArgs e)
+        {
+            if (deposit.Text != "")
+            {
+                balance = grandtotal - Convert.ToDecimal(deposit.Text);
+            }
+            BalanceTb.Text = balance.ToString();
+        }
+
+        private void BookingBtn_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void resetBtn_Click(object sender, EventArgs e)
+        {
+            sets = "";
+            beverages = "";
+            setcost = 0m;
+            bevcost = 0m;
+            grandtotal = 0.0m;
+            balance = 0.0m;
+            grandTotal.Text = "0.0";
+            serviceFee.Text = "0.0";
+            deposit.Text = "0.0";
+            BalanceTb.Text = "0.0";
+            bevCost.Text = "TOTAL: $0";
+            setCost.Text = "TOTAL: $0";
         }
     }
 }

@@ -88,18 +88,19 @@
             Set1 = new CheckBox();
             payment = new GroupBox();
             label3 = new Label();
-            textBox28 = new TextBox();
+            BalanceTb = new TextBox();
             label2 = new Label();
-            textBox27 = new TextBox();
-            textBox26 = new TextBox();
+            grandTotal = new TextBox();
+            deposit = new TextBox();
             pamentTip = new Label();
             label7 = new Label();
-            textBox37 = new TextBox();
-            button1 = new Button();
+            serviceFee = new TextBox();
+            resetBtn = new Button();
             BookingBtn = new Button();
             custIDCb = new ComboBox();
             label4 = new Label();
             custName = new Label();
+            button2 = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             Beverage.SuspendLayout();
@@ -772,17 +773,17 @@
             // payment
             // 
             payment.Controls.Add(label3);
-            payment.Controls.Add(textBox28);
+            payment.Controls.Add(BalanceTb);
             payment.Controls.Add(label2);
-            payment.Controls.Add(textBox27);
-            payment.Controls.Add(textBox26);
+            payment.Controls.Add(grandTotal);
+            payment.Controls.Add(deposit);
             payment.Controls.Add(pamentTip);
             payment.Controls.Add(label7);
-            payment.Controls.Add(textBox37);
-            payment.Font = new Font("Perpetua Titling MT", 15F, FontStyle.Bold, GraphicsUnit.Point);
+            payment.Controls.Add(serviceFee);
+            payment.Font = new Font("Times New Roman", 15F, FontStyle.Regular, GraphicsUnit.Point);
             payment.Location = new Point(99, 1050);
             payment.Name = "payment";
-            payment.Size = new Size(2053, 233);
+            payment.Size = new Size(1702, 233);
             payment.TabIndex = 27;
             payment.TabStop = false;
             payment.Text = "Payments";
@@ -791,18 +792,20 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Goudy Old Style", 13.875F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(1630, 165);
+            label3.Location = new Point(1127, 160);
             label3.Name = "label3";
             label3.Size = new Size(186, 43);
             label3.TabIndex = 31;
             label3.Text = "BALANCE";
             // 
-            // textBox28
+            // BalanceTb
             // 
-            textBox28.Location = new Point(1842, 161);
-            textBox28.Name = "textBox28";
-            textBox28.Size = new Size(291, 56);
-            textBox28.TabIndex = 30;
+            BalanceTb.Enabled = false;
+            BalanceTb.Location = new Point(1339, 156);
+            BalanceTb.Name = "BalanceTb";
+            BalanceTb.Size = new Size(291, 53);
+            BalanceTb.TabIndex = 30;
+            BalanceTb.Text = "0.0";
             // 
             // label2
             // 
@@ -814,29 +817,32 @@
             label2.TabIndex = 29;
             label2.Text = "GRAND TOTAL";
             // 
-            // textBox27
+            // grandTotal
             // 
-            textBox27.Location = new Point(1336, 78);
-            textBox27.Name = "textBox27";
-            textBox27.Size = new Size(291, 56);
-            textBox27.TabIndex = 28;
+            grandTotal.Enabled = false;
+            grandTotal.Location = new Point(1336, 78);
+            grandTotal.Name = "grandTotal";
+            grandTotal.Size = new Size(291, 53);
+            grandTotal.TabIndex = 28;
             // 
-            // textBox26
+            // deposit
             // 
-            textBox26.Location = new Point(746, 160);
-            textBox26.Name = "textBox26";
-            textBox26.Size = new Size(291, 56);
-            textBox26.TabIndex = 27;
+            deposit.Location = new Point(454, 155);
+            deposit.Name = "deposit";
+            deposit.Size = new Size(291, 53);
+            deposit.TabIndex = 27;
+            deposit.Text = "0.0";
+            deposit.TextChanged += deposit_TextChanged;
             // 
             // pamentTip
             // 
             pamentTip.AutoSize = true;
             pamentTip.Font = new Font("Goudy Old Style", 13.875F, FontStyle.Regular, GraphicsUnit.Point);
-            pamentTip.Location = new Point(602, 165);
+            pamentTip.Location = new Point(213, 160);
             pamentTip.Name = "pamentTip";
-            pamentTip.Size = new Size(74, 43);
+            pamentTip.Size = new Size(171, 43);
             pamentTip.TabIndex = 26;
-            pamentTip.Text = "TIP";
+            pamentTip.Text = "DEPOSIT";
             // 
             // label7
             // 
@@ -848,25 +854,29 @@
             label7.TabIndex = 25;
             label7.Text = "SERVICE FEE";
             // 
-            // textBox37
+            // serviceFee
             // 
-            textBox37.Location = new Point(453, 78);
-            textBox37.Name = "textBox37";
-            textBox37.Size = new Size(291, 56);
-            textBox37.TabIndex = 15;
+            serviceFee.Font = new Font("Times New Roman", 13.875F, FontStyle.Regular, GraphicsUnit.Point);
+            serviceFee.Location = new Point(453, 78);
+            serviceFee.Name = "serviceFee";
+            serviceFee.Size = new Size(291, 50);
+            serviceFee.TabIndex = 15;
+            serviceFee.Text = "0.0";
+            serviceFee.TextChanged += serviceFee_TextChanged;
             // 
-            // button1
+            // resetBtn
             // 
-            button1.BackColor = SystemColors.Window;
-            button1.BackgroundImageLayout = ImageLayout.Center;
-            button1.FlatStyle = FlatStyle.Popup;
-            button1.Font = new Font("Perpetua Titling MT", 10F, FontStyle.Bold, GraphicsUnit.Point);
-            button1.Location = new Point(1985, 247);
-            button1.Name = "button1";
-            button1.Size = new Size(276, 53);
-            button1.TabIndex = 29;
-            button1.Text = "RESET";
-            button1.UseVisualStyleBackColor = false;
+            resetBtn.BackColor = SystemColors.Window;
+            resetBtn.BackgroundImageLayout = ImageLayout.Center;
+            resetBtn.FlatStyle = FlatStyle.Popup;
+            resetBtn.Font = new Font("Perpetua Titling MT", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            resetBtn.Location = new Point(1900, 1153);
+            resetBtn.Name = "resetBtn";
+            resetBtn.Size = new Size(276, 53);
+            resetBtn.TabIndex = 29;
+            resetBtn.Text = "RESET";
+            resetBtn.UseVisualStyleBackColor = false;
+            resetBtn.Click += resetBtn_Click;
             // 
             // BookingBtn
             // 
@@ -874,12 +884,13 @@
             BookingBtn.BackgroundImageLayout = ImageLayout.Center;
             BookingBtn.FlatStyle = FlatStyle.Popup;
             BookingBtn.Font = new Font("Perpetua Titling MT", 10F, FontStyle.Bold, GraphicsUnit.Point);
-            BookingBtn.Location = new Point(1985, 162);
+            BookingBtn.Location = new Point(1900, 1068);
             BookingBtn.Name = "BookingBtn";
             BookingBtn.Size = new Size(276, 53);
             BookingBtn.TabIndex = 28;
             BookingBtn.Text = "ADD BOOKING";
             BookingBtn.UseVisualStyleBackColor = false;
+            BookingBtn.Click += BookingBtn_Click;
             // 
             // custIDCb
             // 
@@ -911,15 +922,29 @@
             custName.Size = new Size(0, 44);
             custName.TabIndex = 32;
             // 
+            // button2
+            // 
+            button2.BackColor = SystemColors.Window;
+            button2.BackgroundImageLayout = ImageLayout.Center;
+            button2.FlatStyle = FlatStyle.Popup;
+            button2.Font = new Font("Perpetua Titling MT", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            button2.Location = new Point(1900, 1240);
+            button2.Name = "button2";
+            button2.Size = new Size(276, 53);
+            button2.TabIndex = 33;
+            button2.Text = "HOME";
+            button2.UseVisualStyleBackColor = false;
+            // 
             // Booking
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(2310, 1320);
+            Controls.Add(button2);
             Controls.Add(custName);
             Controls.Add(custIDCb);
             Controls.Add(label4);
-            Controls.Add(button1);
+            Controls.Add(resetBtn);
             Controls.Add(BookingBtn);
             Controls.Add(payment);
             Controls.Add(Sets);
@@ -1005,21 +1030,22 @@
         private GroupBox payment;
         private Label pamentTip;
         private Label label7;
-        private TextBox textBox37;
+        private TextBox serviceFee;
         private Label label3;
-        private TextBox textBox28;
+        private TextBox BalanceTb;
         private Label label2;
-        private TextBox textBox27;
-        private TextBox textBox26;
+        private TextBox grandTotal;
+        private TextBox deposit;
         private PictureBox pictureBox1;
         private Label bevCost;
         private Label setCost;
-        private Button button1;
+        private Button resetBtn;
         private Button BookingBtn;
         private Button beverageBtn;
         private Button setBtn;
         private ComboBox custIDCb;
         private Label label4;
         private Label custName;
+        private Button button2;
     }
 }
