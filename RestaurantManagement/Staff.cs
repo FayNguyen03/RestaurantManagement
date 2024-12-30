@@ -71,6 +71,7 @@ namespace RestaurantManagement
             }
         }
 
+        //retrieving dat from a database table named StaffTbl and populates it into a DataGridView control named StaffDGV
         private void populate()
         {
             Con.Open();

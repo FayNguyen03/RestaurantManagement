@@ -12,24 +12,31 @@ using Microsoft.Data.SqlClient;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using Microsoft.VisualBasic;
 
+
 namespace RestaurantManagement
 {
     public partial class Booking : Form
     {
-        public Booking()
+
+        private ViewBooking viewBooking1;
+        public Booking(ViewBooking v1)
         {
             InitializeComponent();
+            viewBooking1 = v1; 
         }
 
         SqlConnection Con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\Users\ntkha\OneDrive\Tài liệu\RestaurantDb.mdf"";Integrated Security=True;Connect Timeout=30");
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            Application.Run(new Main());
         }
-
+        
+        //Total
         decimal setcost = 0m, bevcost = 0m, grandtotal = 0.0m, balance = 0.0m;
+
         string sets = "", beverages = "";
+        //customer ID
         int custID;
 
         private void resetTextBox(System.Windows.Forms.TextBox Price, System.Windows.Forms.TextBox quantity, decimal price)
@@ -37,7 +44,7 @@ namespace RestaurantManagement
             Price.Enabled = false;
             quantity.Enabled = false;
             Price.Text = price.ToString();
-            quantity.Text = "";
+            quantity.Text = "0";
         }
         private void Beverage1_CheckedChanged(object sender, EventArgs e)
         {
@@ -206,12 +213,12 @@ namespace RestaurantManagement
             {
                 if (champQuantity.Text == "")
                 {
-                    MessageBox.Show("Enter the quanity");
+                    MessageBox.Show("Enter the quantity");
                 }
                 else
                 {
                     bev1 = Convert.ToDecimal(champPrice.Text) * Convert.ToInt32(champQuantity.Text);
-                    beverages += "Champagne ";
+                    beverages += "Champagne " + champQuantity + ";";
                 }
             }
 
@@ -221,12 +228,12 @@ namespace RestaurantManagement
             {
                 if (fineQuantity.Text == "")
                 {
-                    MessageBox.Show("Enter the quanity");
+                    MessageBox.Show("Enter the quantity");
                 }
                 else
                 {
                     bev2 = Convert.ToDecimal(finePrice.Text) * Convert.ToInt32(fineQuantity.Text);
-                    beverages += "Fine Wines ";
+                    beverages += "Fine Wines " + fineQuantity + ";";
                 }
             }
 
@@ -235,12 +242,12 @@ namespace RestaurantManagement
             {
                 if (cocktailQuantity.Text == "")
                 {
-                    MessageBox.Show("Enter the quanity");
+                    MessageBox.Show("Enter the quantity");
                 }
                 else
                 {
                     bev3 = Convert.ToDecimal(cocktailPrice.Text) * Convert.ToInt32(cocktailQuantity.Text);
-                    beverages += "Cocktail ";
+                    beverages += "Cocktail " + cocktailQuantity + ";";
                 }
             }
 
@@ -249,13 +256,13 @@ namespace RestaurantManagement
             {
                 if (whiskiesQuantity.Text == "")
                 {
-                    MessageBox.Show("Enter the quanity");
+                    MessageBox.Show("Enter the quantity");
                 }
 
                 else
                 {
                     bev4 = Convert.ToDecimal(whiskiesPrice.Text) * Convert.ToInt32(whiskiesQuantity.Text);
-                    beverages += "Whiskies ";
+                    beverages += "Whiskies " + whiskiesQuantity + ";";
                 }
             }
 
@@ -264,12 +271,12 @@ namespace RestaurantManagement
             {
                 if (spiritQuantity.Text == "")
                 {
-                    MessageBox.Show("Enter the quanity");
+                    MessageBox.Show("Enter the quantity");
                 }
                 else
                 {
                     bev5 = Convert.ToDecimal(spiritPrice.Text) * Convert.ToInt32(spiritQuantity.Text);
-                    beverages += "Spirits ";
+                    beverages += "Spirits " + spiritQuantity + ";";
                 }
             }
 
@@ -279,12 +286,12 @@ namespace RestaurantManagement
             {
                 if (nonQuantity.Text == "")
                 {
-                    MessageBox.Show("Enter the quanity");
+                    MessageBox.Show("Enter the quantity");
                 }
                 else
                 {
                     bev6 = Convert.ToDecimal(nonPrice.Text) * Convert.ToInt32(nonQuantity.Text);
-                    beverages += "Non-Alcohol ";
+                    beverages += "Non-Alcohol " + nonQuantity + ";";
                 }
             }
 
@@ -305,7 +312,7 @@ namespace RestaurantManagement
             {
                 if (hueQuantity.Text == "")
                 {
-                    MessageBox.Show("Enter the quanity");
+                    MessageBox.Show("Enter the quantity");
                 }
                 else
                 {
@@ -320,7 +327,7 @@ namespace RestaurantManagement
             {
                 if (saigonQuantity.Text == "")
                 {
-                    MessageBox.Show("Enter the quanity");
+                    MessageBox.Show("Enter the quantity");
                 }
                 else
                 {
@@ -334,7 +341,7 @@ namespace RestaurantManagement
             {
                 if (hoiQuantity.Text == "")
                 {
-                    MessageBox.Show("Enter the quanity");
+                    MessageBox.Show("Enter the quantity");
                 }
                 else
                 {
@@ -348,7 +355,7 @@ namespace RestaurantManagement
             {
                 if (lotusQuantity.Text == "")
                 {
-                    MessageBox.Show("Enter the quanity");
+                    MessageBox.Show("Enter the quantity");
                 }
 
                 else
@@ -363,7 +370,7 @@ namespace RestaurantManagement
             {
                 if (hanoiQuantity.Text == "")
                 {
-                    MessageBox.Show("Enter the quanity");
+                    MessageBox.Show("Enter the quantity");
                 }
                 else
                 {
@@ -378,7 +385,7 @@ namespace RestaurantManagement
             {
                 if (danangQuantity.Text == "")
                 {
-                    MessageBox.Show("Enter the quanity");
+                    MessageBox.Show("Enter the quantity");
                 }
                 else
                 {
@@ -415,9 +422,9 @@ namespace RestaurantManagement
             custIDCb.DataSource = dt;
             Con.Close();
 
-
         }
 
+        //get the customerID from the database
         private void Booking_Load(object sender, EventArgs e)
         {
             getCustID();
@@ -466,6 +473,14 @@ namespace RestaurantManagement
             }
         }
 
+        private void clear()
+        {
+            custIDCb.ResetText();
+            CustDate.Value = DateAndTime.Today; 
+            CustPeople.Text = "";
+            timeCb.ResetText();
+        }
+
         private void deposit_TextChanged(object sender, EventArgs e)
         {
             if (deposit.Text != "")
@@ -475,9 +490,31 @@ namespace RestaurantManagement
             BalanceTb.Text = balance.ToString();
         }
 
+
         private void BookingBtn_Click(object sender, EventArgs e)
         {
-            
+            if (beverages == "" || sets == "" || custIDCb.SelectedValue == null)
+            {
+                MessageBox.Show("Missing Data!");
+            }
+            else
+            {
+                try
+                {
+                    Con.Open();
+                    string query = "insert into BookingTbl values('" + custIDCb.SelectedValue.ToString() + "','" + CustDate.Value.Date.ToString() + "','" + timeCb.SelectedValue + "','" + 0 + "','" + 0 + "',0 ,0,'" + bevcost + "','" + setcost + "','" + 0 + "','" + 0 + "','" + 0 + "','" + 0 +  "')";
+                    SqlCommand cmd = new SqlCommand(query, Con);
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Customer Successfully Added");
+                    Con.Close();
+                    populate();
+                    clear();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
         }
 
         private void resetBtn_Click(object sender, EventArgs e)
@@ -494,6 +531,92 @@ namespace RestaurantManagement
             BalanceTb.Text = "0.0";
             bevCost.Text = "TOTAL: $0";
             setCost.Text = "TOTAL: $0";
+
+            //Reset everything
+            if (Beverage1.Checked == true)
+            {
+                resetTextBox(champPrice, champQuantity, 75.5m);
+                Beverage1.Checked = false;
+            }
+
+            if (Beverage2.Checked == true)
+            {
+                resetTextBox(finePrice, fineQuantity, 85.75m);
+                Beverage2.Checked = false;
+            }
+
+            if (Beverage3.Checked == true)
+            {
+                resetTextBox(cocktailPrice, cocktailQuantity, 10.25m);
+                Beverage3.Checked = false;
+            }
+
+            if (Beverage4.Checked == true)
+            {
+                resetTextBox(whiskiesPrice, whiskiesQuantity, 45.25m);
+                Beverage4.Checked = false;
+            }
+
+            if (Beverage5.Checked == true)
+            {
+                resetTextBox(spiritPrice, spiritQuantity, 30.25m);
+                Beverage5.Checked = false;
+            }
+
+            if (Beverage6.Checked == true)
+            {
+                resetTextBox(nonPrice, nonQuantity, 8.5m);
+                Beverage6.Checked = false;
+            }
+
+            if (Set1.Checked == true)
+            {
+                resetTextBox(huePrice, hueQuantity, 65m);
+                Set1.Checked = false;
+            }
+
+            if (Set2.Checked == true)
+            {
+                resetTextBox(saigonPrice, saigonQuantity, 52m);
+                Set2.Checked = false;
+            }
+
+            if (Set3.Checked == true)
+            {
+                resetTextBox(hoiPrice, hoiQuantity, 50m);
+                Set3.Checked = false;
+            }
+
+            if (Set4.Checked == true)
+            {
+                resetTextBox(lotusPrice, lotusQuantity, 45m);
+                Set4.Checked = false;
+            }
+
+            if (Set5.Checked == true)
+            {
+                resetTextBox(hanoiPrice, hanoiQuantity, 49m);
+                Set5.Checked = false;
+            }
+
+            if (Set6.Checked == true)
+            {
+                resetTextBox(danangPrice, danangQuantity, 50.5m);
+                Set6.Checked = false;
+            }
         }
+        private void populate()
+        {
+            Con.Open();
+            string query = "select * from BookingTbl";
+            SqlDataAdapter sda = new SqlDataAdapter(query, Con);
+            SqlCommandBuilder builder = new SqlCommandBuilder(sda);
+            var ds = new DataSet();
+            sda.Fill(ds);
+            viewBooking1.BookingDVGPublic.DataSource = ds.Tables[0];
+            Con.Close();
+        }
+
     }
+
 }

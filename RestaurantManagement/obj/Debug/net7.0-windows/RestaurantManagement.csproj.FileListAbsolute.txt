@@ -56,3 +56,4 @@ C:\Users\ntkha\Documents\CODING\C#\Calculator\RestaurantManagement\RestaurantMan
 C:\Users\ntkha\Documents\CODING\C#\Calculator\RestaurantManagement\RestaurantManagement\bin\Debug\net7.0-windows\ComponentFactory.Krypton.Ribbon.pdb
 C:\Users\ntkha\Documents\CODING\C#\Calculator\RestaurantManagement\RestaurantManagement\bin\Debug\net7.0-windows\ComponentFactory.Krypton.Toolkit.pdb
 C:\Users\ntkha\Documents\CODING\C#\Calculator\RestaurantManagement\RestaurantManagement\bin\Debug\net7.0-windows\ComponentFactory.Krypton.Workspace.pdb
+C:\Users\ntkha\Documents\CODING\C#\Calculator\RestaurantManagement\RestaurantManagement\obj\Debug\net7.0-windows\RestaurantManagement.sourcelink.json

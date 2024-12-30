@@ -14,9 +14,13 @@ namespace RestaurantManagement
 {
     public partial class ViewBooking : Form
     {
+        //public datagridview 
+        public DataGridView BookingDVGPublic => BookingDGV;
+
         public ViewBooking()
         {
             InitializeComponent();
+            
         }
 
         SqlConnection Con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\Users\ntkha\OneDrive\Tài liệu\RestaurantDb.mdf"";Integrated Security=True;Connect Timeout=30");
