@@ -28,14 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DateTimePicker CustDate;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Booking));
             panel1 = new Panel();
             pictureBox1 = new PictureBox();
             bookingName = new Label();
             Date = new Label();
-            CustDate = new DateTimePicker();
             timeName = new Label();
-            timeCb = new ComboBox();
             personNo = new Label();
             CustPeople = new TextBox();
             Beverage = new GroupBox();
@@ -101,12 +100,26 @@
             label4 = new Label();
             custName = new Label();
             button2 = new Button();
+            timeCb = new ComboBox();
+            CustDate = new DateTimePicker();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             Beverage.SuspendLayout();
             Sets.SuspendLayout();
             payment.SuspendLayout();
             SuspendLayout();
+            // 
+            // CustDate
+            // 
+            CustDate.Font = new Font("Perpetua Titling MT", 10.125F, FontStyle.Regular, GraphicsUnit.Point);
+            CustDate.Location = new Point(196, 210);
+            CustDate.MaxDate = new DateTime(2100, 12, 31, 0, 0, 0, 0);
+            CustDate.MinDate = new DateTime(2000, 1, 1, 0, 0, 0, 0);
+            CustDate.Name = "CustDate";
+            CustDate.Size = new Size(558, 39);
+            CustDate.TabIndex = 7;
+            CustDate.TabStop = false;
+            CustDate.Value = new DateTime(2024, 12, 31, 0, 0, 0, 0);
             // 
             // panel1
             // 
@@ -150,17 +163,6 @@
             Date.TabIndex = 6;
             Date.Text = "Date";
             // 
-            // CustDate
-            // 
-            CustDate.Font = new Font("Perpetua Titling MT", 10.125F, FontStyle.Regular, GraphicsUnit.Point);
-            CustDate.Location = new Point(231, 210);
-            CustDate.MaxDate = new DateTime(2100, 12, 31, 0, 0, 0, 0);
-            CustDate.MinDate = new DateTime(2000, 1, 1, 0, 0, 0, 0);
-            CustDate.Name = "CustDate";
-            CustDate.Size = new Size(523, 39);
-            CustDate.TabIndex = 7;
-            CustDate.TabStop = false;
-            // 
             // timeName
             // 
             timeName.AutoSize = true;
@@ -170,15 +172,6 @@
             timeName.Size = new Size(106, 44);
             timeName.TabIndex = 8;
             timeName.Text = "Time";
-            // 
-            // timeCb
-            // 
-            timeCb.FormattingEnabled = true;
-            timeCb.Items.AddRange(new object[] { "Day", "Night" });
-            timeCb.Location = new Point(896, 210);
-            timeCb.Name = "timeCb";
-            timeCb.Size = new Size(235, 40);
-            timeCb.TabIndex = 10;
             // 
             // personNo
             // 
@@ -946,6 +939,15 @@
             button2.Text = "HOME";
             button2.UseVisualStyleBackColor = false;
             // 
+            // timeCb
+            // 
+            timeCb.FormattingEnabled = true;
+            timeCb.Items.AddRange(new object[] { "Day", "Night" });
+            timeCb.Location = new Point(896, 210);
+            timeCb.Name = "timeCb";
+            timeCb.Size = new Size(235, 40);
+            timeCb.TabIndex = 10;
+            // 
             // Booking
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
@@ -991,7 +993,6 @@
         private Label Date;
         private DateTimePicker CustDate;
         private Label timeName;
-        private ComboBox timeCb;
         private Label personNo;
         private TextBox CustPeople;
         private GroupBox Beverage;
@@ -1058,5 +1059,6 @@
         private Label label4;
         private Label custName;
         private Button button2;
+        private ComboBox timeCb;
     }
 }
