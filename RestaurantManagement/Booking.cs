@@ -58,12 +58,11 @@ namespace RestaurantManagement
             Price.Enabled = false;
             quantity.Text = "0";
             quantity.Enabled = false;
-            Price.Text = price.ToString();
+            //Price.Text = price.ToString();
             BalanceTb.Text = balance.ToString();
             grandTotal.Text = grandtotal.ToString();
-           
-        }
 
+        }
 
         private void Beverage1_CheckedChanged(object sender, EventArgs e)
         {
@@ -516,9 +515,80 @@ namespace RestaurantManagement
         private void clear()
         {
             custIDCb.ResetText();
-            CustDate.Value = DateAndTime.Today.Value;
             CustPeople.Text = "";
             timeCb.ResetText();
+            //Reset everything
+            if (Beverage1.Checked == true)
+            {
+                resetTextBox(champPrice, champQuantity, 75.5m);
+                Beverage1.Checked = false;
+            }
+
+            if (Beverage2.Checked == true)
+            {
+                resetTextBox(finePrice, fineQuantity, 85.75m);
+                Beverage2.Checked = false;
+            }
+
+            if (Beverage3.Checked == true)
+            {
+                resetTextBox(cocktailPrice, cocktailQuantity, 10.25m);
+                Beverage3.Checked = false;
+            }
+
+            if (Beverage4.Checked == true)
+            {
+                resetTextBox(whiskiesPrice, whiskiesQuantity, 45.25m);
+                Beverage4.Checked = false;
+            }
+
+            if (Beverage5.Checked == true)
+            {
+                resetTextBox(spiritPrice, spiritQuantity, 30.25m);
+                Beverage5.Checked = false;
+            }
+
+            if (Beverage6.Checked == true)
+            {
+                resetTextBox(nonPrice, nonQuantity, 8.5m);
+                Beverage6.Checked = false;
+            }
+
+            if (Set1.Checked == true)
+            {
+                resetTextBox(huePrice, hueQuantity, 65m);
+                Set1.Checked = false;
+            }
+
+            if (Set2.Checked == true)
+            {
+                resetTextBox(saigonPrice, saigonQuantity, 52m);
+                Set2.Checked = false;
+            }
+
+            if (Set3.Checked == true)
+            {
+                resetTextBox(hoiPrice, hoiQuantity, 50m);
+                Set3.Checked = false;
+            }
+
+            if (Set4.Checked == true)
+            {
+                resetTextBox(lotusPrice, lotusQuantity, 45m);
+                Set4.Checked = false;
+            }
+
+            if (Set5.Checked == true)
+            {
+                resetTextBox(hanoiPrice, hanoiQuantity, 49m);
+                Set5.Checked = false;
+            }
+
+            if (Set6.Checked == true)
+            {
+                resetTextBox(danangPrice, danangQuantity, 50.5m);
+                Set6.Checked = false;
+            }
         }
 
         private void deposit_TextChanged(object sender, EventArgs e)
@@ -543,25 +613,29 @@ namespace RestaurantManagement
                 {
                     Con.Open();
                     var custID = custIDCb.SelectedValue?.ToString();
-                    var custDate = CustDate?.Value.ToString("yyyy-MM-dd") ?? DateAndTime.Today.ToString("yyyy-MM-dd");
+                    var custDate = string.IsNullOrEmpty(CustDate.Value.Date.ToString("yyyy-MM-dd")) ? DateAndTime.Today.ToString("yyyy-MM-dd") : CustDate.Value.ToString("yyyy-MM-dd");
+                    //Console.WriteLine()
                     var custTime = timeCb?.SelectedText.ToString() == null ? "N" : timeCb.SelectedItem.ToString();
                     var custPeople = string.IsNullOrEmpty(CustPeople.Text) ? "1" : CustPeople.Text;
-                    string query = "INSERT INTO bookingTbl (custID, BookingDate, BookingTime, Persons, Hue, Saigon, HoiAn, Lotus, HaNoi, DaNang, Champagne, FineWine, Cocktail, Whiskies, Gin, NonAlcohol, CostDrinks, CostSets, ServiceFee, GrandTotal, Advance, Balance) VALUES ('" + custID + "','" + custDate + "','" + custTime + "','" +  custPeople + "','";
-                    foreach (var set in quantitySet){
+                    string query = "INSERT INTO bookingTbl (custID, BookingDate, BookingTime, Persons, Hue, Saigon, HoiAn, Lotus, HaNoi, DaNang, Champagne, FineWine, Cocktail, Whiskies, Gin, NonAlcohol, CostDrinks, CostSets, ServiceFee, GrandTotal, Advance, Balance) VALUES ('" + custID + "','" + custDate + "','" + custTime + "','" + custPeople + "','";
+                    foreach (var set in quantitySet)
+                    {
                         query += set.Text + "','";
                     }
-                    foreach (var bev in quantityBeverage){
+                    foreach (var bev in quantityBeverage)
+                    {
                         query += bev.Text + "','";
                     }
                     query += bevcost.ToString() + "','" + setcost.ToString() + "','" + serviceFee.Text + "','" + grandtotal.ToString() + "','" + deposit.Text + "','" + balance.ToString() + "')";
-                    MessageBox.Show(query);
+                    //MessageBox.Show(query);
                     SqlCommand cmd = new SqlCommand(query, Con);
                     cmd.ExecuteNonQuery();
+                    resetEverything(sender, e);
                     MessageBox.Show("Booking Successfully Added");
                     Con.Close();
                     populate();
                     clear();
-                    
+
                 }
                 catch (Exception ex)
                 {
@@ -571,7 +645,7 @@ namespace RestaurantManagement
             }
         }
 
-        private void resetBtn_Click(object sender, EventArgs e)
+        private void resetEverything(object sender, EventArgs e)
         {
             sets = "";
             beverages = "";
@@ -585,6 +659,7 @@ namespace RestaurantManagement
             BalanceTb.Text = "0.0";
             bevCost.Text = "TOTAL: $0";
             setCost.Text = "TOTAL: $0";
+            custIDCb.ResetText();
 
             //Reset everything
             if (Beverage1.Checked == true)
@@ -659,6 +734,10 @@ namespace RestaurantManagement
                 Set6.Checked = false;
             }
         }
+        private void resetBtn_Click(object sender, EventArgs e)
+        {
+            resetEverything(sender, e);
+        }
         private void populate()
         {
             Con.Open();
@@ -671,7 +750,17 @@ namespace RestaurantManagement
             Con.Close();
         }
 
-       
+        private void ViewBooking_Click(object sender, EventArgs e)
+        {
+            // Create an instance of the target form
+            ViewBooking bookingForm = new ViewBooking();
+
+            // Show the target form
+            bookingForm.Show();
+
+            // Optionally hide the current form
+            this.Hide();
+        }
     }
 
 }

@@ -27,12 +27,20 @@ namespace RestaurantManagement
 
         private void ViewBooking_Load(object sender, EventArgs e)
         {
-
+            populate();
         }
 
+        int bookingKey = 0;
         private void BookingDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            if (BookingDGV.SelectedRows..Text == "")
+            {
+                custkey = 0;
+            }
+            else
+            {
+                custkey = Convert.ToInt32(CustomerDGV.SelectedRows[0].Cells[0].Value.ToString());
+            }
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -43,7 +51,7 @@ namespace RestaurantManagement
         private void populate()
         {
             Con.Open();
-            string query = "select * from BookingTbl";
+            string query = "select bookingID, custID, BookingDate, BookingTime, Persons, ServiceFee, GrandTotal, Balance from BookingTbl";
             SqlDataAdapter sda = new SqlDataAdapter(query, Con);
             SqlCommandBuilder builder = new SqlCommandBuilder(sda);
             var ds = new DataSet();

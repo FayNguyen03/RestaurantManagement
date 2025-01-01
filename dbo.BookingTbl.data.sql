@@ -1,0 +1,3 @@
+﻿SET IDENTITY_INSERT [dbo].[BookingTbl] ON
+--DBCC CHECKIDENT ('BookingTbl', RESEED, 100);
+SET IDENTITY_INSERT [dbo].[BookingTbl] OFF

@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DateTimePicker CustDate;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Booking));
+            DateTimePicker CustDate;
             panel1 = new Panel();
             pictureBox1 = new PictureBox();
             bookingName = new Label();
@@ -99,7 +99,7 @@
             custIDCb = new ComboBox();
             label4 = new Label();
             custName = new Label();
-            button2 = new Button();
+            ViewBooking = new Button();
             timeCb = new ComboBox();
             CustDate = new DateTimePicker();
             panel1.SuspendLayout();
@@ -108,18 +108,6 @@
             Sets.SuspendLayout();
             payment.SuspendLayout();
             SuspendLayout();
-            // 
-            // CustDate
-            // 
-            CustDate.Font = new Font("Perpetua Titling MT", 10.125F, FontStyle.Regular, GraphicsUnit.Point);
-            CustDate.Location = new Point(196, 210);
-            CustDate.MaxDate = new DateTime(2100, 12, 31, 0, 0, 0, 0);
-            CustDate.MinDate = new DateTime(2000, 1, 1, 0, 0, 0, 0);
-            CustDate.Name = "CustDate";
-            CustDate.Size = new Size(558, 39);
-            CustDate.TabIndex = 7;
-            CustDate.TabStop = false;
-            CustDate.Value = new DateTime(2024, 12, 31, 0, 0, 0, 0);
             // 
             // panel1
             // 
@@ -926,18 +914,19 @@
             custName.Size = new Size(0, 44);
             custName.TabIndex = 32;
             // 
-            // button2
+            // ViewBooking
             // 
-            button2.BackColor = SystemColors.Window;
-            button2.BackgroundImageLayout = ImageLayout.Center;
-            button2.FlatStyle = FlatStyle.Popup;
-            button2.Font = new Font("Perpetua Titling MT", 10F, FontStyle.Bold, GraphicsUnit.Point);
-            button2.Location = new Point(1900, 1240);
-            button2.Name = "button2";
-            button2.Size = new Size(276, 53);
-            button2.TabIndex = 33;
-            button2.Text = "HOME";
-            button2.UseVisualStyleBackColor = false;
+            ViewBooking.BackColor = SystemColors.Window;
+            ViewBooking.BackgroundImageLayout = ImageLayout.Center;
+            ViewBooking.FlatStyle = FlatStyle.Popup;
+            ViewBooking.Font = new Font("Perpetua Titling MT", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            ViewBooking.Location = new Point(1900, 1240);
+            ViewBooking.Name = "ViewBooking";
+            ViewBooking.Size = new Size(276, 53);
+            ViewBooking.TabIndex = 33;
+            ViewBooking.Text = "VIEW BOOKING";
+            ViewBooking.UseVisualStyleBackColor = false;
+            ViewBooking.Click += ViewBooking_Click;
             // 
             // timeCb
             // 
@@ -948,12 +937,24 @@
             timeCb.Size = new Size(235, 40);
             timeCb.TabIndex = 10;
             // 
+            // CustDate
+            // 
+            CustDate.Font = new Font("Perpetua Titling MT", 10.125F, FontStyle.Regular, GraphicsUnit.Point);
+            CustDate.Location = new Point(196, 210);
+            CustDate.MaxDate = new DateTime(2100, 12, 31, 0, 0, 0, 0);
+            CustDate.MinDate = new DateTime(2000, 1, 1, 0, 0, 0, 0);
+            CustDate.Name = "CustDate";
+            CustDate.Size = new Size(558, 39);
+            CustDate.TabIndex = 7;
+            CustDate.TabStop = false;
+            CustDate.Value = new DateTime(2024, 12, 31, 0, 0, 0, 0);
+            // 
             // Booking
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(2310, 1320);
-            Controls.Add(button2);
+            Controls.Add(ViewBooking);
             Controls.Add(custName);
             Controls.Add(custIDCb);
             Controls.Add(label4);
@@ -1058,7 +1059,7 @@
         private ComboBox custIDCb;
         private Label label4;
         private Label custName;
-        private Button button2;
+        private Button ViewBooking;
         private ComboBox timeCb;
     }
 }

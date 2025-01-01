@@ -73,7 +73,7 @@ namespace RestaurantManagement
             CustName.Text = CustomerDGV.SelectedRows[0].Cells[1].Value.ToString();
             CustAdd.Text = CustomerDGV.SelectedRows[0].Cells[2].Value.ToString();
             CustPhone.Text = CustomerDGV.SelectedRows[0].Cells[3].Value.ToString();
-            if (CustPhone.Text == "")
+            if (CustomerDGV.SelectedRows[0].Cells[0].Value.ToString() == "")
             {
                 custkey = 0;
             }
