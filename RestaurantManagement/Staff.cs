@@ -29,7 +29,7 @@ namespace RestaurantManagement
             StaffGender.SelectedItem = StaffDGV.SelectedRows[0].Cells[3].Value.ToString();
             StaffPass.Text = StaffDGV.SelectedRows[0].Cells[4].Value.ToString();
 
-            if (StaffPhone.Text == "")
+            if (StaffName.Text == "")
             {
                 staffkey = 0;
             }
@@ -41,7 +41,11 @@ namespace RestaurantManagement
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            Main mainForm = new Main();
+
+            mainForm.Show();
+
+            this.Hide();
         }
 
         private void addBtn_Click(object sender, EventArgs e)
@@ -71,6 +75,7 @@ namespace RestaurantManagement
             }
         }
 
+        //retrieving dat from a database table named StaffTbl and populates it into a DataGridView control named StaffDGV
         private void populate()
         {
             Con.Open();

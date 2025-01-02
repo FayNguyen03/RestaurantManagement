@@ -31,18 +31,18 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             pictureBox1 = new PictureBox();
             BookingBtn = new Button();
-            button2 = new Button();
-            button3 = new Button();
-            button4 = new Button();
+            customerBtn = new Button();
+            staffBtn = new Button();
+            logoutBtn = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(-1, -2);
+            pictureBox1.Location = new Point(-12, -2);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(1600, 800);
+            pictureBox1.Size = new Size(1615, 731);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
@@ -62,53 +62,55 @@
             BookingBtn.UseVisualStyleBackColor = false;
             BookingBtn.Click += BookingBtn_Click;
             // 
-            // button2
+            // customerBtn
             // 
-            button2.BackColor = SystemColors.Window;
-            button2.BackgroundImageLayout = ImageLayout.Center;
-            button2.FlatStyle = FlatStyle.Popup;
-            button2.Font = new Font("Perpetua Titling MT", 13.875F, FontStyle.Bold, GraphicsUnit.Point);
-            button2.Location = new Point(620, 839);
-            button2.Name = "button2";
-            button2.Size = new Size(276, 69);
-            button2.TabIndex = 10;
-            button2.Text = "LOGIN";
-            button2.UseVisualStyleBackColor = false;
+            customerBtn.BackColor = SystemColors.Window;
+            customerBtn.BackgroundImageLayout = ImageLayout.Center;
+            customerBtn.FlatStyle = FlatStyle.Popup;
+            customerBtn.Font = new Font("Perpetua Titling MT", 13.875F, FontStyle.Bold, GraphicsUnit.Point);
+            customerBtn.Location = new Point(620, 839);
+            customerBtn.Name = "customerBtn";
+            customerBtn.Size = new Size(276, 69);
+            customerBtn.TabIndex = 10;
+            customerBtn.Text = "CUSTOMER";
+            customerBtn.UseVisualStyleBackColor = false;
+            customerBtn.Click += customerBtn_Click;
             // 
-            // button3
+            // staffBtn
             // 
-            button3.BackColor = SystemColors.Window;
-            button3.BackgroundImageLayout = ImageLayout.Center;
-            button3.FlatStyle = FlatStyle.Popup;
-            button3.Font = new Font("Perpetua Titling MT", 13.875F, FontStyle.Bold, GraphicsUnit.Point);
-            button3.Location = new Point(946, 839);
-            button3.Name = "button3";
-            button3.Size = new Size(276, 69);
-            button3.TabIndex = 11;
-            button3.Text = "LOGIN";
-            button3.UseVisualStyleBackColor = false;
+            staffBtn.BackColor = SystemColors.Window;
+            staffBtn.BackgroundImageLayout = ImageLayout.Center;
+            staffBtn.FlatStyle = FlatStyle.Popup;
+            staffBtn.Font = new Font("Perpetua Titling MT", 13.875F, FontStyle.Bold, GraphicsUnit.Point);
+            staffBtn.Location = new Point(946, 839);
+            staffBtn.Name = "staffBtn";
+            staffBtn.Size = new Size(276, 69);
+            staffBtn.TabIndex = 11;
+            staffBtn.Text = "STAFF";
+            staffBtn.UseVisualStyleBackColor = false;
+            staffBtn.Click += staffBtn_Click;
             // 
-            // button4
+            // logoutBtn
             // 
-            button4.BackColor = SystemColors.Window;
-            button4.BackgroundImageLayout = ImageLayout.Center;
-            button4.FlatStyle = FlatStyle.Popup;
-            button4.Font = new Font("Perpetua Titling MT", 13.875F, FontStyle.Bold, GraphicsUnit.Point);
-            button4.Location = new Point(1272, 839);
-            button4.Name = "button4";
-            button4.Size = new Size(276, 69);
-            button4.TabIndex = 12;
-            button4.Text = "LOGIN";
-            button4.UseVisualStyleBackColor = false;
+            logoutBtn.BackColor = SystemColors.Window;
+            logoutBtn.BackgroundImageLayout = ImageLayout.Center;
+            logoutBtn.FlatStyle = FlatStyle.Popup;
+            logoutBtn.Font = new Font("Perpetua Titling MT", 13.875F, FontStyle.Bold, GraphicsUnit.Point);
+            logoutBtn.Location = new Point(1272, 839);
+            logoutBtn.Name = "logoutBtn";
+            logoutBtn.Size = new Size(276, 69);
+            logoutBtn.TabIndex = 12;
+            logoutBtn.Text = "LOG OUT";
+            logoutBtn.UseVisualStyleBackColor = false;
             // 
             // Main
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1600, 950);
-            Controls.Add(button4);
-            Controls.Add(button3);
-            Controls.Add(button2);
+            Controls.Add(logoutBtn);
+            Controls.Add(staffBtn);
+            Controls.Add(customerBtn);
             Controls.Add(BookingBtn);
             Controls.Add(pictureBox1);
             FormBorderStyle = FormBorderStyle.None;
@@ -124,8 +126,8 @@
 
         private PictureBox pictureBox1;
         private Button BookingBtn;
-        private Button button2;
-        private Button button3;
-        private Button button4;
+        private Button customerBtn;
+        private Button staffBtn;
+        private Button logoutBtn;
     }
 }

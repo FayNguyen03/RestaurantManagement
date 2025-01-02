@@ -21,7 +21,11 @@ namespace RestaurantManagement
         SqlConnection Con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\Users\ntkha\OneDrive\Tài liệu\RestaurantDb.mdf"";Integrated Security=True;Connect Timeout=30");
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            Main mainForm = new Main();
+
+            mainForm.Show();
+
+            this.Hide();
         }
 
         private void addBtn_Click(object sender, EventArgs e)
@@ -73,7 +77,7 @@ namespace RestaurantManagement
             CustName.Text = CustomerDGV.SelectedRows[0].Cells[1].Value.ToString();
             CustAdd.Text = CustomerDGV.SelectedRows[0].Cells[2].Value.ToString();
             CustPhone.Text = CustomerDGV.SelectedRows[0].Cells[3].Value.ToString();
-            if (CustPhone.Text == "")
+            if (CustomerDGV.SelectedRows[0].Cells[0].Value.ToString() == "")
             {
                 custkey = 0;
             }

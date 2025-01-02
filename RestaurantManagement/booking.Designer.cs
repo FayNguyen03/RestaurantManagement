@@ -1,4 +1,6 @@
-﻿namespace RestaurantManagement
+﻿using Microsoft.VisualBasic;
+
+namespace RestaurantManagement
 {
     partial class Booking
     {
@@ -30,14 +32,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Booking));
             panel1 = new Panel();
-            pictureBox1 = new PictureBox();
+            exit = new PictureBox();
             bookingName = new Label();
             Date = new Label();
-            dateTimePicker1 = new DateTimePicker();
             timeName = new Label();
-            timeCb = new ComboBox();
             personNo = new Label();
-            textBox1 = new TextBox();
+            CustPeople = new TextBox();
             Beverage = new GroupBox();
             beverageBtn = new Button();
             bevCost = new Label();
@@ -100,9 +100,11 @@
             custIDCb = new ComboBox();
             label4 = new Label();
             custName = new Label();
-            button2 = new Button();
+            ViewBooking = new Button();
+            timeCb = new ComboBox();
+            CustDate = new DateTimePicker();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)exit).BeginInit();
             Beverage.SuspendLayout();
             Sets.SuspendLayout();
             payment.SuspendLayout();
@@ -111,7 +113,7 @@
             // panel1
             // 
             panel1.BackColor = SystemColors.ActiveCaptionText;
-            panel1.Controls.Add(pictureBox1);
+            panel1.Controls.Add(exit);
             panel1.Controls.Add(bookingName);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
@@ -119,15 +121,15 @@
             panel1.Size = new Size(2310, 132);
             panel1.TabIndex = 1;
             // 
-            // pictureBox1
+            // exit
             // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(2176, 23);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(85, 81);
-            pictureBox1.TabIndex = 10;
-            pictureBox1.TabStop = false;
-            pictureBox1.Click += pictureBox1_Click;
+            exit.Image = (Image)resources.GetObject("exit.Image");
+            exit.Location = new Point(2176, 23);
+            exit.Name = "exit";
+            exit.Size = new Size(85, 81);
+            exit.TabIndex = 10;
+            exit.TabStop = false;
+            exit.Click += exit_Click;
             // 
             // bookingName
             // 
@@ -150,14 +152,6 @@
             Date.TabIndex = 6;
             Date.Text = "Date";
             // 
-            // dateTimePicker1
-            // 
-            dateTimePicker1.Font = new Font("Perpetua Titling MT", 10.125F, FontStyle.Regular, GraphicsUnit.Point);
-            dateTimePicker1.Location = new Point(231, 210);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(523, 39);
-            dateTimePicker1.TabIndex = 7;
-            // 
             // timeName
             // 
             timeName.AutoSize = true;
@@ -167,15 +161,6 @@
             timeName.Size = new Size(106, 44);
             timeName.TabIndex = 8;
             timeName.Text = "Time";
-            // 
-            // timeCb
-            // 
-            timeCb.FormattingEnabled = true;
-            timeCb.Items.AddRange(new object[] { "Day", "Night" });
-            timeCb.Location = new Point(896, 210);
-            timeCb.Name = "timeCb";
-            timeCb.Size = new Size(235, 40);
-            timeCb.TabIndex = 10;
             // 
             // personNo
             // 
@@ -187,13 +172,13 @@
             personNo.TabIndex = 11;
             personNo.Text = "No. People";
             // 
-            // textBox1
+            // CustPeople
             // 
-            textBox1.Location = new Point(1406, 200);
-            textBox1.Multiline = true;
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(108, 49);
-            textBox1.TabIndex = 12;
+            CustPeople.Location = new Point(1406, 200);
+            CustPeople.Multiline = true;
+            CustPeople.Name = "CustPeople";
+            CustPeople.Size = new Size(108, 49);
+            CustPeople.TabIndex = 12;
             // 
             // Beverage
             // 
@@ -279,6 +264,7 @@
             nonQuantity.Name = "nonQuantity";
             nonQuantity.Size = new Size(129, 50);
             nonQuantity.TabIndex = 24;
+            nonQuantity.Text = "0";
             nonQuantity.TextAlign = HorizontalAlignment.Right;
             // 
             // nonPrice
@@ -300,6 +286,7 @@
             spiritQuantity.Name = "spiritQuantity";
             spiritQuantity.Size = new Size(129, 50);
             spiritQuantity.TabIndex = 24;
+            spiritQuantity.Text = "0";
             spiritQuantity.TextAlign = HorizontalAlignment.Right;
             // 
             // spiritPrice
@@ -321,6 +308,7 @@
             whiskiesQuantity.Name = "whiskiesQuantity";
             whiskiesQuantity.Size = new Size(129, 50);
             whiskiesQuantity.TabIndex = 22;
+            whiskiesQuantity.Text = "0";
             whiskiesQuantity.TextAlign = HorizontalAlignment.Right;
             // 
             // whiskiesPrice
@@ -342,6 +330,7 @@
             cocktailQuantity.Name = "cocktailQuantity";
             cocktailQuantity.Size = new Size(129, 50);
             cocktailQuantity.TabIndex = 20;
+            cocktailQuantity.Text = "0";
             cocktailQuantity.TextAlign = HorizontalAlignment.Right;
             // 
             // cocktailPrice
@@ -363,6 +352,7 @@
             fineQuantity.Name = "fineQuantity";
             fineQuantity.Size = new Size(129, 50);
             fineQuantity.TabIndex = 18;
+            fineQuantity.Text = "0";
             fineQuantity.TextAlign = HorizontalAlignment.Right;
             // 
             // finePrice
@@ -384,6 +374,7 @@
             champQuantity.Name = "champQuantity";
             champQuantity.Size = new Size(129, 50);
             champQuantity.TabIndex = 16;
+            champQuantity.Text = "0";
             champQuantity.TextAlign = HorizontalAlignment.Right;
             // 
             // champPrice
@@ -824,6 +815,7 @@
             grandTotal.Name = "grandTotal";
             grandTotal.Size = new Size(291, 53);
             grandTotal.TabIndex = 28;
+            grandTotal.Text = "0.0";
             // 
             // deposit
             // 
@@ -894,6 +886,7 @@
             // 
             // custIDCb
             // 
+            custIDCb.DropDownStyle = ComboBoxStyle.DropDownList;
             custIDCb.FormattingEnabled = true;
             custIDCb.Items.AddRange(new object[] { "Day", "Night" });
             custIDCb.Location = new Point(1711, 207);
@@ -922,25 +915,47 @@
             custName.Size = new Size(0, 44);
             custName.TabIndex = 32;
             // 
-            // button2
+            // ViewBooking
             // 
-            button2.BackColor = SystemColors.Window;
-            button2.BackgroundImageLayout = ImageLayout.Center;
-            button2.FlatStyle = FlatStyle.Popup;
-            button2.Font = new Font("Perpetua Titling MT", 10F, FontStyle.Bold, GraphicsUnit.Point);
-            button2.Location = new Point(1900, 1240);
-            button2.Name = "button2";
-            button2.Size = new Size(276, 53);
-            button2.TabIndex = 33;
-            button2.Text = "HOME";
-            button2.UseVisualStyleBackColor = false;
+            ViewBooking.BackColor = SystemColors.Window;
+            ViewBooking.BackgroundImageLayout = ImageLayout.Center;
+            ViewBooking.FlatStyle = FlatStyle.Popup;
+            ViewBooking.Font = new Font("Perpetua Titling MT", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            ViewBooking.Location = new Point(1900, 1240);
+            ViewBooking.Name = "ViewBooking";
+            ViewBooking.Size = new Size(276, 53);
+            ViewBooking.TabIndex = 33;
+            ViewBooking.Text = "VIEW BOOKING";
+            ViewBooking.UseVisualStyleBackColor = false;
+            ViewBooking.Click += ViewBooking_Click;
+            // 
+            // timeCb
+            // 
+            timeCb.FormattingEnabled = true;
+            timeCb.Items.AddRange(new object[] { "Day", "Night" });
+            timeCb.Location = new Point(896, 210);
+            timeCb.Name = "timeCb";
+            timeCb.Size = new Size(235, 40);
+            timeCb.TabIndex = 10;
+            // 
+            // CustDate
+            // 
+            CustDate.Font = new Font("Perpetua Titling MT", 10.125F, FontStyle.Regular, GraphicsUnit.Point);
+            CustDate.Location = new Point(196, 210);
+            CustDate.MaxDate = new DateTime(2100, 12, 31, 0, 0, 0, 0);
+            CustDate.MinDate = new DateTime(2000, 1, 1, 0, 0, 0, 0);
+            CustDate.Name = "CustDate";
+            CustDate.Size = new Size(558, 39);
+            CustDate.TabIndex = 7;
+            CustDate.TabStop = false;
+            CustDate.Value = new DateTime(2025, 1, 1, 0, 0, 0, 0);
             // 
             // Booking
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(2310, 1320);
-            Controls.Add(button2);
+            Controls.Add(ViewBooking);
             Controls.Add(custName);
             Controls.Add(custIDCb);
             Controls.Add(label4);
@@ -949,11 +964,11 @@
             Controls.Add(payment);
             Controls.Add(Sets);
             Controls.Add(Beverage);
-            Controls.Add(textBox1);
+            Controls.Add(CustPeople);
             Controls.Add(personNo);
             Controls.Add(timeCb);
             Controls.Add(timeName);
-            Controls.Add(dateTimePicker1);
+            Controls.Add(CustDate);
             Controls.Add(Date);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
@@ -962,7 +977,7 @@
             Load += Booking_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)exit).EndInit();
             Beverage.ResumeLayout(false);
             Beverage.PerformLayout();
             Sets.ResumeLayout(false);
@@ -978,11 +993,10 @@
         private Panel panel1;
         private Label bookingName;
         private Label Date;
-        private DateTimePicker dateTimePicker1;
+        private DateTimePicker CustDate;
         private Label timeName;
-        private ComboBox timeCb;
         private Label personNo;
-        private TextBox textBox1;
+        private TextBox CustPeople;
         private GroupBox Beverage;
         private CheckBox Beverage6;
         private CheckBox Beverage5;
@@ -1036,7 +1050,7 @@
         private Label label2;
         private TextBox grandTotal;
         private TextBox deposit;
-        private PictureBox pictureBox1;
+        private PictureBox exit;
         private Label bevCost;
         private Label setCost;
         private Button resetBtn;
@@ -1046,6 +1060,7 @@
         private ComboBox custIDCb;
         private Label label4;
         private Label custName;
-        private Button button2;
+        private Button ViewBooking;
+        private ComboBox timeCb;
     }
 }

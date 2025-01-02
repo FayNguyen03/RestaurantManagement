@@ -1,0 +1,3 @@
+- Rest the primary key for the database:
+
+`DBCC CHECKIDENT ('BookingTbl', RESEED, 100);`
