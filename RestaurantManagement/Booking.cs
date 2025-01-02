@@ -18,8 +18,6 @@ using TextBox = System.Windows.Forms.TextBox;
 namespace RestaurantManagement
 {
 
-
-
     public partial class Booking : Form
     {
 
@@ -28,11 +26,11 @@ namespace RestaurantManagement
         private CheckBox[] beverageCheckBoxes;
         private TextBox[] quantitySet;
         private TextBox[] quantityBeverage;
-        public Booking(ViewBooking v1)
+        private string[] setQuery = new string[] { "@hue", "@saigon", "@hoian", "@lotus", "@hanoi", "@danang" };
+        private string[] bevQuery = new string[] { "@champagne", "@fineWine", "@cocktail", "@whiskies", "@gin", "@nonAlcohol" };
+        public Booking()
         {
-            InitializeComponent();
-            viewBooking1 = v1;
-            beverageCheckBoxes = new CheckBox[] { Beverage1, Beverage2, Beverage3, Beverage4, Beverage5, Beverage6 };
+            InitializeComponent();            beverageCheckBoxes = new CheckBox[] { Beverage1, Beverage2, Beverage3, Beverage4, Beverage5, Beverage6 };
             quantityBeverage = new TextBox[] { champQuantity, fineQuantity, cocktailQuantity, whiskiesQuantity, spiritQuantity, nonQuantity };
             quantitySet = new TextBox[] { hueQuantity, saigonQuantity, hoiQuantity, lotusQuantity, hanoiQuantity, danangQuantity };
         }
@@ -40,9 +38,13 @@ namespace RestaurantManagement
         SqlConnection Con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\Users\ntkha\OneDrive\Tài liệu\RestaurantDb.mdf"";Integrated Security=True;Connect Timeout=30");
 
         //Exit Button
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void exit_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            Main main = new Main();
+
+            main.Show();
+
+            this.Hide();
         }
 
         //Total
@@ -63,6 +65,31 @@ namespace RestaurantManagement
             grandTotal.Text = grandtotal.ToString();
 
         }
+
+        private int SafeConvertToInt(string input, int defaultValue = 0)
+        {
+            if (int.TryParse(input, out int result))
+            {
+                return result;
+            }
+                                            
+            // Optionally log or handle the invalid input case
+            MessageBox.Show($"Invalid input: '{input}'. Defaulting to {defaultValue}.");
+            return defaultValue; // Return a default value if conversion fails
+        }
+
+        private decimal SafeConvertToDecimal(string input, decimal defaultValue = 0m)
+        {
+            if (decimal.TryParse(input, out decimal result))
+            {
+                return result;
+            }
+
+            // Optionally log or handle the invalid input case
+            MessageBox.Show($"Invalid input: '{input}'. Defaulting to {defaultValue}.");
+            return defaultValue; // Return a default value if conversion fails
+        }
+        
 
         private void Beverage1_CheckedChanged(object sender, EventArgs e)
         {
@@ -235,7 +262,7 @@ namespace RestaurantManagement
                 }
                 else
                 {
-                    bev1 = Convert.ToDecimal(champPrice.Text) * Convert.ToInt32(champQuantity.Text);
+                    bev1 = SafeConvertToDecimal(champPrice.Text) * SafeConvertToInt(champQuantity.Text);
                     beverages += "Champagne " + champQuantity + ";";
                 }
             }
@@ -250,7 +277,7 @@ namespace RestaurantManagement
                 }
                 else
                 {
-                    bev2 = Convert.ToDecimal(finePrice.Text) * Convert.ToInt32(fineQuantity.Text);
+                    bev2 = SafeConvertToDecimal(finePrice.Text) * SafeConvertToInt(fineQuantity.Text);
                     beverages += "Fine Wines " + fineQuantity + ";";
                 }
             }
@@ -264,7 +291,7 @@ namespace RestaurantManagement
                 }
                 else
                 {
-                    bev3 = Convert.ToDecimal(cocktailPrice.Text) * Convert.ToInt32(cocktailQuantity.Text);
+                    bev3 = SafeConvertToDecimal(cocktailPrice.Text) * SafeConvertToInt(cocktailQuantity.Text);
                     beverages += "Cocktail " + cocktailQuantity + ";";
                 }
             }
@@ -279,7 +306,7 @@ namespace RestaurantManagement
 
                 else
                 {
-                    bev4 = Convert.ToDecimal(whiskiesPrice.Text) * Convert.ToInt32(whiskiesQuantity.Text);
+                    bev4 = SafeConvertToDecimal(whiskiesPrice.Text) * SafeConvertToInt(whiskiesQuantity.Text);
                     beverages += "Whiskies " + whiskiesQuantity + ";";
                 }
             }
@@ -293,7 +320,7 @@ namespace RestaurantManagement
                 }
                 else
                 {
-                    bev5 = Convert.ToDecimal(spiritPrice.Text) * Convert.ToInt32(spiritQuantity.Text);
+                    bev5 = SafeConvertToDecimal(spiritPrice.Text) * SafeConvertToInt(spiritQuantity.Text);
                     beverages += "Spirits " + spiritQuantity + ";";
                 }
             }
@@ -308,16 +335,16 @@ namespace RestaurantManagement
                 }
                 else
                 {
-                    bev6 = Convert.ToDecimal(nonPrice.Text) * Convert.ToInt32(nonQuantity.Text);
+                    bev6 = SafeConvertToDecimal(nonPrice.Text) * SafeConvertToInt(nonQuantity.Text);
                     beverages += "Non-Alcohol " + nonQuantity + ";";
                 }
             }
 
 
             bevcost = bev1 + bev2 + bev3 + bev4 + bev5 + bev6;
-            grandtotal = bevcost + setcost + Convert.ToDecimal(serviceFee.Text);
+            grandtotal = bevcost + setcost + SafeConvertToDecimal(serviceFee.Text);
             grandTotal.Text = grandtotal.ToString();
-            balance = grandtotal - Convert.ToDecimal(deposit.Text);
+            balance = grandtotal - SafeConvertToDecimal(deposit.Text);
             BalanceTb.Text = balance.ToString();
             bevCost.Text = "TOTAL: $" + bevcost.ToString();
 
@@ -336,7 +363,7 @@ namespace RestaurantManagement
                 }
                 else
                 {
-                    set1 = Convert.ToDecimal(huePrice.Text) * Convert.ToInt32(hueQuantity.Text);
+                    set1 = SafeConvertToDecimal(huePrice.Text) * SafeConvertToInt(hueQuantity.Text);
                     sets += "Hue " + hueQuantity + ";";
                 }
             }
@@ -351,7 +378,7 @@ namespace RestaurantManagement
                 }
                 else
                 {
-                    set2 = Convert.ToDecimal(saigonPrice.Text) * Convert.ToInt32(saigonQuantity.Text);
+                    set2 = SafeConvertToDecimal(saigonPrice.Text) * SafeConvertToInt(saigonQuantity.Text);
                     sets += "SaiGon " + saigonQuantity + ";";
                 }
             }
@@ -365,7 +392,7 @@ namespace RestaurantManagement
                 }
                 else
                 {
-                    set3 = Convert.ToDecimal(hoiPrice.Text) * Convert.ToInt32(hoiQuantity.Text);
+                    set3 = SafeConvertToDecimal(hoiPrice.Text) * SafeConvertToInt(hoiQuantity.Text);
                     sets += "HoiAn " + hoiQuantity + ";";
                 }
             }
@@ -380,7 +407,7 @@ namespace RestaurantManagement
 
                 else
                 {
-                    set4 = Convert.ToDecimal(lotusPrice.Text) * Convert.ToInt32(lotusQuantity.Text);
+                    set4 = SafeConvertToDecimal(lotusPrice.Text) * SafeConvertToInt(lotusQuantity.Text);
                     sets += "Lotus " + lotusQuantity + ";";
                 }
             }
@@ -394,7 +421,7 @@ namespace RestaurantManagement
                 }
                 else
                 {
-                    set5 = Convert.ToDecimal(hanoiPrice.Text) * Convert.ToInt32(hanoiQuantity.Text);
+                    set5 = SafeConvertToDecimal(hanoiPrice.Text) * SafeConvertToInt(hanoiQuantity.Text);
                     sets += "HaNoi " + hanoiQuantity + ";";
                 }
             }
@@ -409,7 +436,7 @@ namespace RestaurantManagement
                 }
                 else
                 {
-                    set6 = Convert.ToDecimal(danangPrice.Text) * Convert.ToInt32(danangQuantity.Text);
+                    set6 = SafeConvertToDecimal(danangPrice.Text) * SafeConvertToInt(danangQuantity.Text);
                     sets += "DaNang " + danangQuantity + ";";
                 }
             }
@@ -418,7 +445,7 @@ namespace RestaurantManagement
             setcost = set1 + set2 + set3 + set4 + set5 + set6;
             if (serviceFee.Text != "")
             {
-                grandtotal = bevcost + setcost + Convert.ToDecimal(serviceFee.Text);
+                grandtotal = bevcost + setcost + SafeConvertToDecimal(serviceFee.Text);
             }
             else
             {
@@ -426,23 +453,7 @@ namespace RestaurantManagement
             }
             grandTotal.Text = grandtotal.ToString();
 
-            try
-            {
-                decimal depositAmount;
-                if (!decimal.TryParse(deposit.Text, out depositAmount))
-                {
-                    MessageBox.Show("Please enter a valid numeric value for the deposit.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return; // Exit the method to avoid further calculations
-                }
-
-                decimal balance = grandtotal - depositAmount;
-                // Proceed with further logic, e.g., updating UI or saving the balance
-            }
-            catch (Exception ex)
-            {
-                // Handle unexpected errors gracefully
-                MessageBox.Show($"An unexpected error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            balance = grandtotal - SafeConvertToDecimal(deposit.Text);
             BalanceTb.Text = balance.ToString();
             setCost.Text = "TOTAL: $" + setcost.ToString();
         }
@@ -498,7 +509,7 @@ namespace RestaurantManagement
         {
             if (serviceFee.Text != "")
             {
-                grandtotal = bevcost + setcost + Convert.ToDecimal(serviceFee.Text);
+                grandtotal = bevcost + setcost + SafeConvertToDecimal(serviceFee.Text);
 
             }
             grandTotal.Text = grandtotal.ToString();
@@ -508,7 +519,7 @@ namespace RestaurantManagement
             }
             else
             {
-                balance = grandtotal - Convert.ToDecimal(deposit.Text);
+                balance = grandtotal - SafeConvertToDecimal(deposit.Text);
             }
         }
 
@@ -595,11 +606,10 @@ namespace RestaurantManagement
         {
             if (deposit.Text != "")
             {
-                balance = grandtotal - Convert.ToDecimal(deposit.Text);
+                balance = grandtotal - SafeConvertToDecimal(deposit.Text);
             }
             BalanceTb.Text = balance.ToString();
         }
-
 
         private void BookingBtn_Click(object sender, EventArgs e)
         {
@@ -617,23 +627,36 @@ namespace RestaurantManagement
                     //Console.WriteLine()
                     var custTime = timeCb?.SelectedText.ToString() == null ? "N" : timeCb.SelectedItem.ToString();
                     var custPeople = string.IsNullOrEmpty(CustPeople.Text) ? "1" : CustPeople.Text;
-                    string query = "INSERT INTO bookingTbl (custID, BookingDate, BookingTime, Persons, Hue, Saigon, HoiAn, Lotus, HaNoi, DaNang, Champagne, FineWine, Cocktail, Whiskies, Gin, NonAlcohol, CostDrinks, CostSets, ServiceFee, GrandTotal, Advance, Balance) VALUES ('" + custID + "','" + custDate + "','" + custTime + "','" + custPeople + "','";
-                    foreach (var set in quantitySet)
-                    {
-                        query += set.Text + "','";
-                    }
-                    foreach (var bev in quantityBeverage)
-                    {
-                        query += bev.Text + "','";
-                    }
-                    query += bevcost.ToString() + "','" + setcost.ToString() + "','" + serviceFee.Text + "','" + grandtotal.ToString() + "','" + deposit.Text + "','" + balance.ToString() + "')";
-                    //MessageBox.Show(query);
+                    string query = "INSERT INTO bookingTbl (custID, BookingDate, BookingTime, Persons, Hue, Saigon, HoiAn, Lotus, HaNoi, DaNang, Champagne, FineWine, Cocktail, Whiskies, Gin, NonAlcohol, CostDrinks, CostSets, ServiceFee, GrandTotal, Advance, Balance) " +
+               "VALUES (@custID, @custDate, @custTime, @custPeople, @hue, @saigon, @hoian, @lotus, @hanoi, @danang, @champagne, @fineWine, @cocktail, @whiskies, @gin, @nonAlcohol, @costDrinks, @costSets, @serviceFee, @grandTotal, @advance, @balance)";
+
                     SqlCommand cmd = new SqlCommand(query, Con);
+                    cmd.Parameters.AddWithValue("@custID", custID);
+                    cmd.Parameters.AddWithValue("@custDate", custDate);
+                    cmd.Parameters.AddWithValue("@custTime", custTime);
+                    cmd.Parameters.AddWithValue("@custPeople", custPeople);
+
+                    // Add parameters for quantitySet and quantityBeverage dynamically
+                    for (var i = 0; i < quantitySet.Length; i++)
+                    {
+                        cmd.Parameters.AddWithValue(setQuery[i], SafeConvertToInt(quantitySet[i].Text));
+                    }
+                    for (var i = 0; i < quantityBeverage.Length; i++)
+                    {
+                        cmd.Parameters.AddWithValue(bevQuery[i], SafeConvertToInt(quantityBeverage[i].Text));
+                    }
+
+                    cmd.Parameters.AddWithValue("@costDrinks", bevcost);
+                    cmd.Parameters.AddWithValue("@costSets", setcost);
+                    cmd.Parameters.AddWithValue("@serviceFee", SafeConvertToDecimal(serviceFee.Text));
+                    cmd.Parameters.AddWithValue("@grandTotal", grandtotal);
+                    cmd.Parameters.AddWithValue("@advance", SafeConvertToDecimal(deposit.Text));
+                    cmd.Parameters.AddWithValue("@balance", balance);
+
                     cmd.ExecuteNonQuery();
                     resetEverything(sender, e);
                     MessageBox.Show("Booking Successfully Added");
                     Con.Close();
-                    populate();
                     clear();
 
                 }
@@ -642,6 +665,7 @@ namespace RestaurantManagement
                     MessageBox.Show(ex.Message);
                     Con.Close();
                 }
+                
             }
         }
 
@@ -659,7 +683,9 @@ namespace RestaurantManagement
             BalanceTb.Text = "0.0";
             bevCost.Text = "TOTAL: $0";
             setCost.Text = "TOTAL: $0";
-            custIDCb.ResetText();
+            custIDCb.SelectedIndex=-1;
+            custName.Text = "";
+            CustDate.Value = DateTime.Now;
 
             //Reset everything
             if (Beverage1.Checked == true)
@@ -738,25 +764,13 @@ namespace RestaurantManagement
         {
             resetEverything(sender, e);
         }
-        private void populate()
-        {
-            Con.Open();
-            string query = "select * from BookingTbl";
-            SqlDataAdapter sda = new SqlDataAdapter(query, Con);
-            SqlCommandBuilder builder = new SqlCommandBuilder(sda);
-            var ds = new DataSet();
-            sda.Fill(ds);
-            viewBooking1.BookingDVGPublic.DataSource = ds.Tables[0];
-            Con.Close();
-        }
-
         private void ViewBooking_Click(object sender, EventArgs e)
         {
             // Create an instance of the target form
-            ViewBooking bookingForm = new ViewBooking();
+            ViewBooking viewBookingForm = new ViewBooking();
 
             // Show the target form
-            bookingForm.Show();
+            viewBookingForm.Show();
 
             // Optionally hide the current form
             this.Hide();

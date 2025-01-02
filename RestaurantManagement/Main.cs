@@ -29,7 +29,25 @@ namespace RestaurantManagement
 
         private void BookingBtn_Click(object sender, EventArgs e)
         {
+            Booking bookingForm = new Booking();
 
+            bookingForm.Show();
+
+            this.Hide();
+        }
+
+        private void customerBtn_Click(object sender, EventArgs e)
+        {
+            Customer customerForm = new Customer();
+            customerForm.Show();
+            this.Hide();
+        }
+
+        private void staffBtn_Click(object sender, EventArgs e)
+        {
+            Staff staffForm = new Staff();
+            staffForm.Show();
+            this.Hide();
         }
     }
 }

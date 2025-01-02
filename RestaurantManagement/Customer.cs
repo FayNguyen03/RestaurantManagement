@@ -21,7 +21,11 @@ namespace RestaurantManagement
         SqlConnection Con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\Users\ntkha\OneDrive\Tài liệu\RestaurantDb.mdf"";Integrated Security=True;Connect Timeout=30");
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            Main mainForm = new Main();
+
+            mainForm.Show();
+
+            this.Hide();
         }
 
         private void addBtn_Click(object sender, EventArgs e)

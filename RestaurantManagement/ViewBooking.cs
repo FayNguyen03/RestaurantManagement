@@ -20,7 +20,7 @@ namespace RestaurantManagement
         public ViewBooking()
         {
             InitializeComponent();
-            
+
         }
 
         SqlConnection Con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\Users\ntkha\OneDrive\Tài liệu\RestaurantDb.mdf"";Integrated Security=True;Connect Timeout=30");
@@ -33,25 +33,29 @@ namespace RestaurantManagement
         int bookingKey = 0;
         private void BookingDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (BookingDGV.SelectedRows..Text == "")
+            if (BookingDGV.SelectedRows[0].Cells[0].Value.ToString() == "")
             {
-                custkey = 0;
+                bookingKey = 0;
             }
             else
             {
-                custkey = Convert.ToInt32(CustomerDGV.SelectedRows[0].Cells[0].Value.ToString());
+                bookingKey = Convert.ToInt32(BookingDGV.SelectedRows[0].Cells[0].Value.ToString());
             }
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            Main mainForm = new Main();
+
+            mainForm.Show();
+
+            this.Hide();
         }
 
         private void populate()
         {
             Con.Open();
-            string query = "select bookingID, custID, BookingDate, BookingTime, Persons, ServiceFee, GrandTotal, Balance from BookingTbl";
+            string query = "select bookingID, custID, BookingDate, BookingTime, Persons, ServiceFee, GrandTotal, Balance from BookingTbl WHERE Serve = 0";
             SqlDataAdapter sda = new SqlDataAdapter(query, Con);
             SqlCommandBuilder builder = new SqlCommandBuilder(sda);
             var ds = new DataSet();
@@ -60,5 +64,54 @@ namespace RestaurantManagement
             Con.Close();
         }
 
+        private void deleteBtn_Click(object sender, EventArgs e)
+        {
+            if (bookingKey == 0)
+            {
+                MessageBox.Show("Select The Customer To Be Deleted");
+            }
+            else
+            {
+                try
+                {
+                    Con.Open();
+                    string query = "Delete from BookingTbl where bookingID=" + bookingKey + ";";
+                    SqlCommand cmd = new SqlCommand(query, Con);
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Booking Deleted Successfully");
+                    Con.Close();
+                    populate();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
+
+        private void addBtn_Click(object sender, EventArgs e)
+        {
+            Booking bookingForm = new Booking();
+            bookingForm.Show();
+            this.Hide();
+        }
+
+        private void resetBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Con.Open();
+                string query = "Delete from BookingTbl; DBCC CHECKIDENT ('BookingTbl', RESEED, 100);";
+                SqlCommand cmd = new SqlCommand(query, Con);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("All bookings deleted");
+                Con.Close();
+                populate();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

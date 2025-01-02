@@ -36,9 +36,10 @@
             pictureBox1 = new PictureBox();
             bookingName = new Label();
             BeverageItem = new Label();
-            button1 = new Button();
-            button2 = new Button();
+            deleteBtn = new Button();
+            resetBtn = new Button();
             BookingDGV = new DataGridView();
+            addBtn = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)BookingDGV).BeginInit();
@@ -86,31 +87,33 @@
             BeverageItem.TabIndex = 15;
             BeverageItem.Text = "BOOKING LIST";
             // 
-            // button1
+            // deleteBtn
             // 
-            button1.BackColor = SystemColors.Window;
-            button1.BackgroundImageLayout = ImageLayout.Center;
-            button1.FlatStyle = FlatStyle.Popup;
-            button1.Font = new Font("Perpetua Titling MT", 10F, FontStyle.Bold, GraphicsUnit.Point);
-            button1.Location = new Point(680, 1212);
-            button1.Name = "button1";
-            button1.Size = new Size(297, 66);
-            button1.TabIndex = 31;
-            button1.Text = "DELETE BOOKING";
-            button1.UseVisualStyleBackColor = false;
+            deleteBtn.BackColor = SystemColors.Window;
+            deleteBtn.BackgroundImageLayout = ImageLayout.Center;
+            deleteBtn.FlatStyle = FlatStyle.Popup;
+            deleteBtn.Font = new Font("Perpetua Titling MT", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            deleteBtn.Location = new Point(973, 1212);
+            deleteBtn.Name = "deleteBtn";
+            deleteBtn.Size = new Size(297, 66);
+            deleteBtn.TabIndex = 31;
+            deleteBtn.Text = "DELETE BOOKING";
+            deleteBtn.UseVisualStyleBackColor = false;
+            deleteBtn.Click += deleteBtn_Click;
             // 
-            // button2
+            // resetBtn
             // 
-            button2.BackColor = SystemColors.Window;
-            button2.BackgroundImageLayout = ImageLayout.Center;
-            button2.FlatStyle = FlatStyle.Popup;
-            button2.Font = new Font("Perpetua Titling MT", 10F, FontStyle.Bold, GraphicsUnit.Point);
-            button2.Location = new Point(1324, 1212);
-            button2.Name = "button2";
-            button2.Size = new Size(297, 66);
-            button2.TabIndex = 32;
-            button2.Text = "RESET";
-            button2.UseVisualStyleBackColor = false;
+            resetBtn.BackColor = SystemColors.Window;
+            resetBtn.BackgroundImageLayout = ImageLayout.Center;
+            resetBtn.FlatStyle = FlatStyle.Popup;
+            resetBtn.Font = new Font("Perpetua Titling MT", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            resetBtn.Location = new Point(1546, 1212);
+            resetBtn.Name = "resetBtn";
+            resetBtn.Size = new Size(297, 66);
+            resetBtn.TabIndex = 32;
+            resetBtn.Text = "RESET";
+            resetBtn.UseVisualStyleBackColor = false;
+            resetBtn.Click += resetBtn_Click;
             // 
             // BookingDGV
             // 
@@ -160,14 +163,29 @@
             BookingDGV.TabIndex = 52;
             BookingDGV.CellContentClick += BookingDGV_CellContentClick;
             // 
+            // addBtn
+            // 
+            addBtn.BackColor = SystemColors.Window;
+            addBtn.BackgroundImageLayout = ImageLayout.Center;
+            addBtn.FlatStyle = FlatStyle.Popup;
+            addBtn.Font = new Font("Perpetua Titling MT", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            addBtn.Location = new Point(427, 1212);
+            addBtn.Name = "addBtn";
+            addBtn.Size = new Size(297, 66);
+            addBtn.TabIndex = 53;
+            addBtn.Text = "INSERT BOOKING";
+            addBtn.UseVisualStyleBackColor = false;
+            addBtn.Click += addBtn_Click;
+            // 
             // ViewBooking
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(2310, 1320);
+            Controls.Add(addBtn);
             Controls.Add(BookingDGV);
-            Controls.Add(button2);
-            Controls.Add(button1);
+            Controls.Add(resetBtn);
+            Controls.Add(deleteBtn);
             Controls.Add(BeverageItem);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
@@ -189,8 +207,9 @@
         private PictureBox pictureBox1;
         private Label bookingName;
         private Label BeverageItem;
-        private Button button1;
-        private Button button2;
+        private Button deleteBtn;
+        private Button resetBtn;
         private DataGridView BookingDGV;
+        private Button addBtn;
     }
 }

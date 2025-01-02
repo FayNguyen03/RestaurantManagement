@@ -1,4 +1,6 @@
-﻿namespace RestaurantManagement
+﻿using Microsoft.VisualBasic;
+
+namespace RestaurantManagement
 {
     partial class Booking
     {
@@ -29,9 +31,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Booking));
-            DateTimePicker CustDate;
             panel1 = new Panel();
-            pictureBox1 = new PictureBox();
+            exit = new PictureBox();
             bookingName = new Label();
             Date = new Label();
             timeName = new Label();
@@ -103,7 +104,7 @@
             timeCb = new ComboBox();
             CustDate = new DateTimePicker();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)exit).BeginInit();
             Beverage.SuspendLayout();
             Sets.SuspendLayout();
             payment.SuspendLayout();
@@ -112,7 +113,7 @@
             // panel1
             // 
             panel1.BackColor = SystemColors.ActiveCaptionText;
-            panel1.Controls.Add(pictureBox1);
+            panel1.Controls.Add(exit);
             panel1.Controls.Add(bookingName);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
@@ -120,15 +121,15 @@
             panel1.Size = new Size(2310, 132);
             panel1.TabIndex = 1;
             // 
-            // pictureBox1
+            // exit
             // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(2176, 23);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(85, 81);
-            pictureBox1.TabIndex = 10;
-            pictureBox1.TabStop = false;
-            pictureBox1.Click += pictureBox1_Click;
+            exit.Image = (Image)resources.GetObject("exit.Image");
+            exit.Location = new Point(2176, 23);
+            exit.Name = "exit";
+            exit.Size = new Size(85, 81);
+            exit.TabIndex = 10;
+            exit.TabStop = false;
+            exit.Click += exit_Click;
             // 
             // bookingName
             // 
@@ -947,7 +948,7 @@
             CustDate.Size = new Size(558, 39);
             CustDate.TabIndex = 7;
             CustDate.TabStop = false;
-            CustDate.Value = new DateTime(2024, 12, 31, 0, 0, 0, 0);
+            CustDate.Value = new DateTime(2025, 1, 1, 0, 0, 0, 0);
             // 
             // Booking
             // 
@@ -976,7 +977,7 @@
             Load += Booking_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)exit).EndInit();
             Beverage.ResumeLayout(false);
             Beverage.PerformLayout();
             Sets.ResumeLayout(false);
@@ -1049,7 +1050,7 @@
         private Label label2;
         private TextBox grandTotal;
         private TextBox deposit;
-        private PictureBox pictureBox1;
+        private PictureBox exit;
         private Label bevCost;
         private Label setCost;
         private Button resetBtn;

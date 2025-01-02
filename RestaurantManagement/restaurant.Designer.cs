@@ -123,7 +123,7 @@
             Login.BackgroundImageLayout = ImageLayout.Center;
             Login.FlatStyle = FlatStyle.Popup;
             Login.Font = new Font("Perpetua Titling MT", 13.875F, FontStyle.Bold, GraphicsUnit.Point);
-            Login.Location = new Point(849, 417);
+            Login.Location = new Point(664, 415);
             Login.Name = "Login";
             Login.Size = new Size(276, 69);
             Login.TabIndex = 7;
