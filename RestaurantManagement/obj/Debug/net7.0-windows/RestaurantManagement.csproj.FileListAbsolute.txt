@@ -17,7 +17,6 @@ C:\Users\ntkha\Documents\CODING\C#\Calculator\RestaurantManagement\RestaurantMan
 C:\Users\ntkha\Documents\CODING\C#\Calculator\RestaurantManagement\RestaurantManagement\obj\Debug\net7.0-windows\RestaurantManagement.booking.resources
 C:\Users\ntkha\Documents\CODING\C#\Calculator\RestaurantManagement\RestaurantManagement\obj\Debug\net7.0-windows\RestaurantManagement.main.resources
 C:\Users\ntkha\Documents\CODING\C#\Calculator\RestaurantManagement\RestaurantManagement\obj\Debug\net7.0-windows\RestaurantManagement.Properties.Resources.resources
-C:\Users\ntkha\Documents\CODING\C#\Calculator\RestaurantManagement\RestaurantManagement\obj\Debug\net7.0-windows\RestaurantManagement.Res.resources
 C:\Users\ntkha\Documents\CODING\C#\Calculator\RestaurantManagement\RestaurantManagement\obj\Debug\net7.0-windows\RestaurantManagement.ViewBooking.resources
 C:\Users\ntkha\Documents\CODING\C#\Calculator\RestaurantManagement\RestaurantManagement\obj\Debug\net7.0-windows\RestaurantManagement.Staff.resources
 C:\Users\ntkha\Documents\CODING\C#\Calculator\RestaurantManagement\RestaurantManagement\obj\Debug\net7.0-windows\RestaurantManagement.Customer.resources
@@ -68,3 +67,4 @@ C:\Users\ntkha\Documents\CODING\C#\Calculator\RestaurantManagement\RestaurantMan
 C:\Users\ntkha\Documents\CODING\C#\Calculator\RestaurantManagement\RestaurantManagement\bin\Debug\net7.0-windows\zh-Hans\Microsoft.Data.SqlClient.resources.dll
 C:\Users\ntkha\Documents\CODING\C#\Calculator\RestaurantManagement\RestaurantManagement\bin\Debug\net7.0-windows\zh-Hant\Microsoft.Data.SqlClient.resources.dll
 C:\Users\ntkha\Documents\CODING\C#\Calculator\RestaurantManagement\RestaurantManagement\obj\Debug\net7.0-windows\Restaura.B356954C.Up2Date
+C:\Users\ntkha\Documents\CODING\C#\Calculator\RestaurantManagement\RestaurantManagement\obj\Debug\net7.0-windows\RestaurantManagement.Login.resources

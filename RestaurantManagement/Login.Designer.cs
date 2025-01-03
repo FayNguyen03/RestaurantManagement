@@ -1,6 +1,9 @@
-﻿namespace RestaurantManagement
+﻿using static System.Net.Mime.MediaTypeNames;
+using System.Windows.Forms;
+
+namespace RestaurantManagement
 {
-    partial class Res
+    partial class Login
     {
         /// <summary>
         ///  Required designer variable.
@@ -35,7 +38,7 @@
             textBox1 = new TextBox();
             textBox2 = new TextBox();
             Password = new Label();
-            Login = new Button();
+            LoginBtn = new Button();
             username = new Label();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -119,17 +122,17 @@
             // 
             // Login
             // 
-            Login.BackColor = SystemColors.Window;
-            Login.BackgroundImageLayout = ImageLayout.Center;
-            Login.FlatStyle = FlatStyle.Popup;
-            Login.Font = new Font("Perpetua Titling MT", 13.875F, FontStyle.Bold, GraphicsUnit.Point);
-            Login.Location = new Point(664, 415);
-            Login.Name = "Login";
-            Login.Size = new Size(276, 69);
-            Login.TabIndex = 7;
-            Login.Text = "LOGIN";
-            Login.UseVisualStyleBackColor = false;
-            Login.Click += Login_Click;
+            LoginBtn.BackColor = SystemColors.Window;
+            LoginBtn.BackgroundImageLayout = ImageLayout.Center;
+            LoginBtn.FlatStyle = FlatStyle.Popup;
+            LoginBtn.Font = new Font("Perpetua Titling MT", 13.875F, FontStyle.Bold, GraphicsUnit.Point);
+            LoginBtn.Location = new Point(664, 415);
+            LoginBtn.Name = "Login";
+            LoginBtn.Size = new Size(276, 69);
+            LoginBtn.TabIndex = 7;
+            LoginBtn.Text = "LOGIN";
+            LoginBtn.UseVisualStyleBackColor = false;
+            LoginBtn.Click += Login_Click;
             // 
             // username
             // 
@@ -147,7 +150,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1191, 723);
             Controls.Add(username);
-            Controls.Add(Login);
+            Controls.Add(LoginBtn);
             Controls.Add(Password);
             Controls.Add(textBox2);
             Controls.Add(textBox1);
@@ -157,7 +160,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "Res";
             Text = "Restaurant";
-            Load += restaurant_Load;
+            Load += Login_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);
@@ -172,7 +175,7 @@
         private TextBox textBox1;
         private TextBox textBox2;
         private Label Password;
-        private Button Login;
+        private Button LoginBtn;
         private Label Quote;
         private Label username;
     }

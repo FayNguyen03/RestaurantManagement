@@ -68,7 +68,7 @@ namespace RestaurantManagement
         {
             if (bookingKey == 0)
             {
-                MessageBox.Show("Select The Customer To Be Deleted");
+                MessageBox.Show("Select The Booking To Be Deleted");
             }
             else
             {

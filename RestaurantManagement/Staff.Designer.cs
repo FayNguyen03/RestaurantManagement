@@ -48,7 +48,6 @@
             addBtn = new Button();
             resetBtn = new Button();
             deleteBtn = new Button();
-            backBtn = new Button();
             StaffDGV = new DataGridView();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -227,19 +226,6 @@
             deleteBtn.UseVisualStyleBackColor = false;
             deleteBtn.Click += deleteBtn_Click;
             // 
-            // backBtn
-            // 
-            backBtn.BackColor = SystemColors.Window;
-            backBtn.BackgroundImageLayout = ImageLayout.Center;
-            backBtn.FlatStyle = FlatStyle.Popup;
-            backBtn.Font = new Font("Perpetua Titling MT", 10F, FontStyle.Bold, GraphicsUnit.Point);
-            backBtn.Location = new Point(992, 1228);
-            backBtn.Name = "backBtn";
-            backBtn.Size = new Size(297, 66);
-            backBtn.TabIndex = 35;
-            backBtn.Text = "back";
-            backBtn.UseVisualStyleBackColor = false;
-            // 
             // StaffDGV
             // 
             StaffDGV.AllowUserToOrderColumns = true;
@@ -284,7 +270,7 @@
             StaffDGV.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             StaffDGV.RowTemplate.Height = 41;
             StaffDGV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            StaffDGV.Size = new Size(2160, 695);
+            StaffDGV.Size = new Size(2160, 769);
             StaffDGV.TabIndex = 52;
             StaffDGV.CellContentClick += StaffDGV_CellContentClick;
             // 
@@ -294,7 +280,6 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(2310, 1320);
             Controls.Add(StaffDGV);
-            Controls.Add(backBtn);
             Controls.Add(deleteBtn);
             Controls.Add(resetBtn);
             Controls.Add(editBtn);
@@ -339,7 +324,6 @@
         private Button addBtn;
         private Button resetBtn;
         private Button deleteBtn;
-        private Button backBtn;
         private DataGridView StaffDGV;
     }
 }

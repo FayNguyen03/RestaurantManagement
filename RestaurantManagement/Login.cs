@@ -2,14 +2,14 @@ using System.Diagnostics.Contracts;
 
 namespace RestaurantManagement
 {
-    public partial class Res : Form
+    public partial class Login : Form
     {
-        public Res()
+        public Login()
         {
             InitializeComponent();
         }
 
-        private void restaurant_Load(object sender, EventArgs e)
+        private void Login_Load(object sender, EventArgs e)
         {
 
         }
